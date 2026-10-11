@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://cwyjnq0vqf4hv"]
+
+[ext_resource type="Script" uid="uid://dvho6njpbi62j" path="res://universes/test_universe/scripts/rooms/world.gd" id="1_t1gcm"]
+[ext_resource type="PackedScene" uid="uid://dinecciykka02" path="res://universes/test_universe/scenes/rooms/level.tscn" id="2_8ictb"]
+[ext_resource type="PackedScene" uid="uid://qso67iw3umhi" path="res://universes/test_universe/scenes/rooms/level_2.tscn" id="3_ck0hu"]
+[ext_resource type="PackedScene" uid="uid://p5kpsayh7g8a" path="res://universes/test_universe/scenes/objects/player.tscn" id="4_irbbj"]
+[ext_resource type="Script" uid="uid://b00nykr3emhyo" path="res://universes/test_universe/scripts/objects/camera_2d.gd" id="5_l1pg1"]
+[ext_resource type="Script" uid="uid://dwxy06ig3n53d" path="res://universes/test_universe/scripts/objects/camera_helper.gd" id="6_cte60"]
+[ext_resource type="PackedScene" uid="uid://bj1mxuuqpc2qf" path="res://universes/test_universe/scenes/objects/camera_area.tscn" id="7_jdbij"]
+
+[node name="World" type="Node" unique_id=1562650878 node_paths=PackedStringArray("player", "camera", "buddy")]
+script = ExtResource("1_t1gcm")
+player = NodePath("Test Player")
+camera = NodePath("Test Camera2D")
+buddy = NodePath("Test CameraHelper")
+
+[node name="Test Level" parent="." unique_id=1728698247 instance=ExtResource("2_8ictb")]
+
+[node name="Test Level 2" parent="." unique_id=1595373838 instance=ExtResource("3_ck0hu")]
+position = Vector2(640, 0)
+
+[node name="Test Player" parent="." unique_id=993322269 groups=["player"] instance=ExtResource("4_irbbj")]
+position = Vector2(82, 249)
+
+[node name="Test Camera2D" type="Camera2D" parent="." unique_id=1507087289]
+position = Vector2(320, 160)
+script = ExtResource("5_l1pg1")
+
+[node name="Test CameraHelper" type="Node2D" parent="." unique_id=347084110]
+script = ExtResource("6_cte60")
+
+[node name="CameraArea" parent="." unique_id=1827295303 instance=ExtResource("7_jdbij")]
+position = Vector2(320, 160)
+zoom = Vector2(1.5, 1.5)
+camera_follow = true
+
+[node name="CameraArea2" parent="." unique_id=2108803011 instance=ExtResource("7_jdbij")]
+position = Vector2(960, 160)
+zoom = Vector2(1, 1)

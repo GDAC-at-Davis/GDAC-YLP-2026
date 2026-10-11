@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bj1mxuuqpc2qf"]
 
-[ext_resource type="Script" uid="uid://bv7ld76jla66e" path="res://universes/test_universe/scripts/rooms/test_camera_area.gd" id="1_lx7f5"]
+[ext_resource type="Script" uid="uid://bv7ld76jla66e" path="res://universes/test_universe/scripts/rooms/camera_area.gd" id="1_lx7f5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p5ja0"]
 size = Vector2(640, 320)
