@@ -4,10 +4,7 @@ extends Node2D
 @export var follow_player: bool = true
 
 # This should be the World node
-var world: Node
-
-func _ready() -> void:
-	world = get_parent()
+@export var world: Node
 
 func set_zoom(new_zoom: Vector2) -> void:
 	zoom = new_zoom

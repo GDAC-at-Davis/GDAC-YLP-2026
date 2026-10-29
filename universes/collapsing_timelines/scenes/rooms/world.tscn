@@ -18,57 +18,110 @@ size = Vector2(639.2885, 312)
 
 [node name="World" type="Node" unique_id=1562650878 node_paths=PackedStringArray("player", "camera", "buddy")]
 script = ExtResource("1_b58p3")
-player = NodePath("Test Player")
-camera = NodePath("Test Camera2D")
-buddy = NodePath("Test CameraHelper")
+player = NodePath("CurrentTimeline/Test Player")
+camera = NodePath("CurrentTimeline/Test Camera2D")
+buddy = NodePath("CurrentTimeline/Test CameraHelper")
 
-[node name="Test Level" parent="." unique_id=1728698247 instance=ExtResource("2_aaqxg")]
+[node name="CurrentTimeline" type="Node2D" parent="." unique_id=521400562]
 
-[node name="Test Level 2" parent="." unique_id=1595373838 instance=ExtResource("3_pb8bk")]
+[node name="Test Level" parent="CurrentTimeline" unique_id=1728698247 instance=ExtResource("2_aaqxg")]
+
+[node name="Test Level 2" parent="CurrentTimeline" unique_id=1595373838 instance=ExtResource("3_pb8bk")]
 position = Vector2(640, 0)
 
-[node name="Test Player" parent="." unique_id=993322269 groups=["player"] instance=ExtResource("4_o51gu")]
+[node name="Test Player" parent="CurrentTimeline" unique_id=993322269 groups=["player"] instance=ExtResource("4_o51gu")]
 position = Vector2(82, 288)
 
-[node name="Test Camera2D" type="Camera2D" parent="." unique_id=1507087289]
+[node name="Test Camera2D" type="Camera2D" parent="CurrentTimeline" unique_id=1507087289]
 position = Vector2(320, 180)
 script = ExtResource("5_escfi")
 
-[node name="Test CameraHelper" type="Node2D" parent="." unique_id=347084110]
+[node name="Test CameraHelper" type="Node2D" parent="CurrentTimeline" unique_id=347084110 node_paths=PackedStringArray("world")]
 script = ExtResource("6_er2uw")
+world = NodePath("../..")
 
-[node name="Camera Area" type="Area2D" parent="." unique_id=36670971]
+[node name="Camera Area" type="Area2D" parent="CurrentTimeline" unique_id=36670971 node_paths=PackedStringArray("world")]
 position = Vector2(319.00003, 160)
 scale = Vector2(1.0011129, 1)
 script = ExtResource("7_r25u4")
 zoom = Vector2(1.5, 1.5)
 camera_follow = true
+world = NodePath("../..")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera Area" unique_id=1856459128]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CurrentTimeline/Camera Area" unique_id=1856459128]
 position = Vector2(0.9987793, -3.5)
 shape = SubResource("RectangleShape2D_8ictb")
 
-[node name="Camera Point" type="Area2D" parent="Camera Area/CollisionShape2D" unique_id=1408907021 groups=["camera point"]]
+[node name="Camera Point" type="Area2D" parent="CurrentTimeline/Camera Area/CollisionShape2D" unique_id=1408907021 groups=["camera point"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera Area/CollisionShape2D/Camera Point" unique_id=1750301018]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CurrentTimeline/Camera Area/CollisionShape2D/Camera Point" unique_id=1750301018]
 shape = SubResource("RectangleShape2D_irbbj")
 
-[node name="Camera Area2" type="Area2D" parent="." unique_id=652545478]
+[node name="Camera Area2" type="Area2D" parent="CurrentTimeline" unique_id=652545478 node_paths=PackedStringArray("world")]
 position = Vector2(961, 160)
 scale = Vector2(1.0011129, 1)
 script = ExtResource("7_r25u4")
 zoom = Vector2(1, 1)
+world = NodePath("../..")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera Area2" unique_id=160669328]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CurrentTimeline/Camera Area2" unique_id=160669328]
 position = Vector2(-0.9987793, -4)
 shape = SubResource("RectangleShape2D_ck0hu")
 
-[node name="Camera Point" type="Area2D" parent="Camera Area2/CollisionShape2D" unique_id=390376083 groups=["camera point"]]
+[node name="Camera Point" type="Area2D" parent="CurrentTimeline/Camera Area2/CollisionShape2D" unique_id=390376083 groups=["camera point"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera Area2/CollisionShape2D/Camera Point" unique_id=877151625]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CurrentTimeline/Camera Area2/CollisionShape2D/Camera Point" unique_id=877151625]
 shape = SubResource("RectangleShape2D_irbbj")
 
-[connection signal="body_entered" from="Camera Area" to="Camera Area" method="_on_body_entered"]
-[connection signal="body_exited" from="Camera Area" to="Camera Area" method="_on_body_exited"]
-[connection signal="body_entered" from="Camera Area2" to="Camera Area2" method="_on_body_entered"]
-[connection signal="body_exited" from="Camera Area2" to="Camera Area2" method="_on_body_exited"]
+[node name="PastTimeline" type="Node2D" parent="." unique_id=625400206]
+position = Vector2(0, 1000)
+
+[node name="Test Level" parent="PastTimeline" unique_id=1667525389 instance=ExtResource("2_aaqxg")]
+
+[node name="Test Level 2" parent="PastTimeline" unique_id=445076149 instance=ExtResource("3_pb8bk")]
+position = Vector2(640, 0)
+
+[node name="Test Player" parent="PastTimeline" unique_id=1582990206 groups=["player"] instance=ExtResource("4_o51gu")]
+position = Vector2(82, 288)
+
+[node name="Camera Area" type="Area2D" parent="PastTimeline" unique_id=1598901547 node_paths=PackedStringArray("world")]
+position = Vector2(319.00003, 160)
+scale = Vector2(1.0011129, 1)
+script = ExtResource("7_r25u4")
+zoom = Vector2(1.5, 1.5)
+camera_follow = true
+world = NodePath("../..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PastTimeline/Camera Area" unique_id=1351204276]
+position = Vector2(0.9987793, -3.5)
+shape = SubResource("RectangleShape2D_8ictb")
+
+[node name="Camera Point" type="Area2D" parent="PastTimeline/Camera Area/CollisionShape2D" unique_id=1963566117 groups=["camera point"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PastTimeline/Camera Area/CollisionShape2D/Camera Point" unique_id=335374829]
+shape = SubResource("RectangleShape2D_irbbj")
+
+[node name="Camera Area2" type="Area2D" parent="PastTimeline" unique_id=744618441 node_paths=PackedStringArray("world")]
+position = Vector2(961, 160)
+scale = Vector2(1.0011129, 1)
+script = ExtResource("7_r25u4")
+zoom = Vector2(1, 1)
+world = NodePath("../..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PastTimeline/Camera Area2" unique_id=2009151284]
+position = Vector2(-0.9987793, -4)
+shape = SubResource("RectangleShape2D_ck0hu")
+
+[node name="Camera Point" type="Area2D" parent="PastTimeline/Camera Area2/CollisionShape2D" unique_id=1533527040 groups=["camera point"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PastTimeline/Camera Area2/CollisionShape2D/Camera Point" unique_id=1699282430]
+shape = SubResource("RectangleShape2D_irbbj")
+
+[connection signal="body_entered" from="CurrentTimeline/Camera Area" to="CurrentTimeline/Camera Area" method="_on_body_entered"]
+[connection signal="body_exited" from="CurrentTimeline/Camera Area" to="CurrentTimeline/Camera Area" method="_on_body_exited"]
+[connection signal="body_entered" from="CurrentTimeline/Camera Area2" to="CurrentTimeline/Camera Area2" method="_on_body_entered"]
+[connection signal="body_exited" from="CurrentTimeline/Camera Area2" to="CurrentTimeline/Camera Area2" method="_on_body_exited"]
+[connection signal="body_entered" from="PastTimeline/Camera Area" to="PastTimeline/Camera Area" method="_on_body_entered"]
+[connection signal="body_exited" from="PastTimeline/Camera Area" to="PastTimeline/Camera Area" method="_on_body_exited"]
+[connection signal="body_entered" from="PastTimeline/Camera Area2" to="PastTimeline/Camera Area2" method="_on_body_entered"]
+[connection signal="body_exited" from="PastTimeline/Camera Area2" to="PastTimeline/Camera Area2" method="_on_body_exited"]

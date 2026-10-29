@@ -4,10 +4,7 @@ extends Area2D
 @export var camera_follow : bool = false
 
 # This should be the World node
-var world: Node
-
-func _ready() -> void:
-	world = get_parent()
+@export var world: Node
 
 func _on_body_entered(body: CharacterBody2D) -> void:
 	if not body.is_in_group("player"): return
