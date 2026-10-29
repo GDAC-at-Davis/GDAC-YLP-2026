@@ -16,9 +16,10 @@ size = Vector2(639.2885, 311)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ck0hu"]
 size = Vector2(639.2885, 312)
 
-[node name="World" type="Node" unique_id=1562650878 node_paths=PackedStringArray("player", "camera", "buddy")]
+[node name="World" type="Node" unique_id=1562650878 node_paths=PackedStringArray("currentPlayer", "pastPlayer", "camera", "buddy")]
 script = ExtResource("1_b58p3")
-player = NodePath("CurrentTimeline/Test Player")
+currentPlayer = NodePath("CurrentTimeline/Test Player")
+pastPlayer = NodePath("PastTimeline/Test Player")
 camera = NodePath("CurrentTimeline/Test Camera2D")
 buddy = NodePath("CurrentTimeline/Test CameraHelper")
 
@@ -36,9 +37,11 @@ position = Vector2(82, 288)
 position = Vector2(320, 180)
 script = ExtResource("5_escfi")
 
-[node name="Test CameraHelper" type="Node2D" parent="CurrentTimeline" unique_id=347084110 node_paths=PackedStringArray("world")]
+[node name="Test CameraHelper" type="Node2D" parent="CurrentTimeline" unique_id=347084110 node_paths=PackedStringArray("world", "present_camera_triggers", "past_camera_triggers")]
 script = ExtResource("6_er2uw")
 world = NodePath("../..")
+present_camera_triggers = [NodePath("../Camera Area"), NodePath("../Camera Area2")]
+past_camera_triggers = [NodePath("../../PastTimeline/Camera Area"), NodePath("../../PastTimeline/Camera Area2")]
 
 [node name="Camera Area" type="Area2D" parent="CurrentTimeline" unique_id=36670971 node_paths=PackedStringArray("world")]
 position = Vector2(319.00003, 160)

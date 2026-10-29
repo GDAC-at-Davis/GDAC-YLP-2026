@@ -1,6 +1,7 @@
 extends Node
 
-@export var player: CharacterBody2D
+@export var currentPlayer: CharacterBody2D
+@export var pastPlayer: CharacterBody2D
 @export var camera: Camera2D
 @export var buddy: Node2D
 
