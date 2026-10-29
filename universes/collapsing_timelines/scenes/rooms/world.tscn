@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://dgoa8o6aohlos"]
+
+[ext_resource type="Script" uid="uid://clt6k23qouf1h" path="res://universes/collapsing_timelines/scripts/rooms/world.gd" id="1_b58p3"]
+[ext_resource type="PackedScene" uid="uid://h7uj3ojtk722" path="res://universes/collapsing_timelines/scenes/rooms/level.tscn" id="2_aaqxg"]
+[ext_resource type="PackedScene" uid="uid://diut4c7nhlaqc" path="res://universes/collapsing_timelines/scenes/rooms/level_2.tscn" id="3_pb8bk"]
+[ext_resource type="PackedScene" uid="uid://dr1tgatvfyklb" path="res://universes/collapsing_timelines/scenes/objects/player.tscn" id="4_o51gu"]
+[ext_resource type="Script" uid="uid://d32ai8xraui4i" path="res://universes/collapsing_timelines/scripts/objects/camera_2d.gd" id="5_escfi"]
+[ext_resource type="Script" uid="uid://cwm0k4kaxuy2f" path="res://universes/collapsing_timelines/scripts/objects/camera_helper.gd" id="6_er2uw"]
+[ext_resource type="Script" uid="uid://q6ptw7d5vj70" path="res://universes/collapsing_timelines/scripts/rooms/camera_area.gd" id="7_r25u4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ictb"]
+size = Vector2(639.2885, 311)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_irbbj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ck0hu"]
+size = Vector2(639.2885, 312)
+
+[node name="World" type="Node" unique_id=1562650878 node_paths=PackedStringArray("player", "camera", "buddy")]
+script = ExtResource("1_b58p3")
+player = NodePath("Test Player")
+camera = NodePath("Test Camera2D")
+buddy = NodePath("Test CameraHelper")
+
+[node name="Test Level" parent="." unique_id=1728698247 instance=ExtResource("2_aaqxg")]
+
+[node name="Test Level 2" parent="." unique_id=1595373838 instance=ExtResource("3_pb8bk")]
+position = Vector2(640, 0)
+
+[node name="Test Player" parent="." unique_id=993322269 groups=["player"] instance=ExtResource("4_o51gu")]
+position = Vector2(82, 288)
+
+[node name="Test Camera2D" type="Camera2D" parent="." unique_id=1507087289]
+position = Vector2(320, 180)
+script = ExtResource("5_escfi")
+
+[node name="Test CameraHelper" type="Node2D" parent="." unique_id=347084110]
+script = ExtResource("6_er2uw")
+
+[node name="Camera Area" type="Area2D" parent="." unique_id=36670971]
+position = Vector2(319.00003, 160)
+scale = Vector2(1.0011129, 1)
+script = ExtResource("7_r25u4")
+zoom = Vector2(1.5, 1.5)
+camera_follow = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera Area" unique_id=1856459128]
+position = Vector2(0.9987793, -3.5)
+shape = SubResource("RectangleShape2D_8ictb")
+
+[node name="Camera Point" type="Area2D" parent="Camera Area/CollisionShape2D" unique_id=1408907021 groups=["camera point"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera Area/CollisionShape2D/Camera Point" unique_id=1750301018]
+shape = SubResource("RectangleShape2D_irbbj")
+
+[node name="Camera Area2" type="Area2D" parent="." unique_id=652545478]
+position = Vector2(961, 160)
+scale = Vector2(1.0011129, 1)
+script = ExtResource("7_r25u4")
+zoom = Vector2(1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera Area2" unique_id=160669328]
+position = Vector2(-0.9987793, -4)
+shape = SubResource("RectangleShape2D_ck0hu")
+
+[node name="Camera Point" type="Area2D" parent="Camera Area2/CollisionShape2D" unique_id=390376083 groups=["camera point"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera Area2/CollisionShape2D/Camera Point" unique_id=877151625]
+shape = SubResource("RectangleShape2D_irbbj")
+
+[connection signal="body_entered" from="Camera Area" to="Camera Area" method="_on_body_entered"]
+[connection signal="body_exited" from="Camera Area" to="Camera Area" method="_on_body_exited"]
+[connection signal="body_entered" from="Camera Area2" to="Camera Area2" method="_on_body_entered"]
+[connection signal="body_exited" from="Camera Area2" to="Camera Area2" method="_on_body_exited"]

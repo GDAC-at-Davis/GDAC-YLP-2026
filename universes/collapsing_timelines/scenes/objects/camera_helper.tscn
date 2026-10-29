@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://ctws01hdedmir"]
+
+[ext_resource type="Script" uid="uid://cwm0k4kaxuy2f" path="res://universes/collapsing_timelines/scripts/objects/camera_helper.gd" id="1_2iwet"]
+
+[node name="CameraHelper" type="Node2D" unique_id=1601657839]
+script = ExtResource("1_2iwet")

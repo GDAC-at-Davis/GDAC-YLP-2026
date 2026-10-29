@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dr1tgatvfyklb"]
+
+[ext_resource type="Script" uid="uid://cvl1c6lxvdhl3" path="res://universes/collapsing_timelines/scripts/objects/player.gd" id="1_pfglu"]
+[ext_resource type="Texture2D" uid="uid://k4juxsnal5tw" path="res://universes/collapsing_timelines/assets/sprites/test_player.png" id="2_8db46"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qnbew"]
+size = Vector2(26, 45)
+
+[node name="Test Player" type="CharacterBody2D" unique_id=993322269]
+script = ExtResource("1_pfglu")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1535311039]
+texture_filter = 1
+texture = ExtResource("2_8db46")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1556139949]
+shape = SubResource("RectangleShape2D_qnbew")
