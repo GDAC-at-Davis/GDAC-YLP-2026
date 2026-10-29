@@ -7,7 +7,7 @@ var zoom_speed: float = 12.0
 var world: Node
 
 func _ready() -> void:
-	world = get_parent()
+	world = get_tree().root.get_node("World");
 
 func _physics_process(delta: float) -> void:
 	if world.buddy:
