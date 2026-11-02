@@ -20,3 +20,14 @@ func _physics_process(delta):
 		$Sprite2D.flip_h = !facing_right
 
 	move_and_slide()
+	
+	
+	
+	
+	
+var MaskOn = false
+func mask():
+	if Input.is_action_pressed("Equip_Mask"):
+		MaskOn = true
+	else:
+		MaskOn = false
