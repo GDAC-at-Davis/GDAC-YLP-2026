@@ -8,10 +8,10 @@ extends Area2D
 
 func _on_body_entered(body: Node2D) -> void:	
 	if not body.is_in_group("player"): return
-	world.buddy.set_zoom(zoom)
-	world.buddy.set_follow_player(camera_follow)
+	world.camera_helper.set_zoom(zoom)
+	world.camera_helper.set_follow_player(camera_follow)
 	if not camera_follow:
 		var areas = get_overlapping_areas()
 		for area in areas:
 			if area.is_in_group("camera point"):
-				world.buddy.global_position = area.global_position
+				world.camera_helper.global_position = area.global_position
