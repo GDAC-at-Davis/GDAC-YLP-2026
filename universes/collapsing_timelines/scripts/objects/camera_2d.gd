@@ -10,6 +10,6 @@ func _ready() -> void:
 	world = get_tree().root.get_node("World");
 
 func _physics_process(delta: float) -> void:
-	if world.buddy:
-		global_position = lerp(global_position, world.buddy.global_position, follow_speed * delta)
-		zoom = lerp(zoom, world.buddy.zoom, zoom_speed * delta)
+	if world.camera_helper:
+		global_position = lerp(global_position, world.camera_helper.global_position, follow_speed * delta)
+		zoom = lerp(zoom, world.camera_helper.zoom, zoom_speed * delta)

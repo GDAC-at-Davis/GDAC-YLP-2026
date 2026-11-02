@@ -1,9 +1,7 @@
 extends Node
 
-@export var currentPlayer: CharacterBody2D
-@export var pastPlayer: CharacterBody2D
 @export var camera: Camera2D
-@export var buddy: Node2D
+@export var camera_helper: Node2D
 
 #func _ready() -> void:
 	#player = get_node("Player")
