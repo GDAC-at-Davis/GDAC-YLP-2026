@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://x4k1rk1rqr7k" path="res://universes/test_universe/scripts/objects/player.gd" id="1_65e6g"]
 [ext_resource type="Texture2D" uid="uid://cedq6vvx5igdy" path="res://universes/test_universe/assets/sprites/test_player.png" id="2_ihi8k"]
+[ext_resource type="Texture2D" uid="uid://bqkc400hex574" path="res://test_char.webp" id="3_bf7sb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qnbew"]
 size = Vector2(26, 45)
@@ -12,6 +13,11 @@ script = ExtResource("1_65e6g")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1535311039]
 texture_filter = 1
 texture = ExtResource("2_ihi8k")
+
+[node name="TestChar" type="Sprite2D" parent="Sprite2D" unique_id=1467173780]
+position = Vector2(6.556511e-07, 1.3709068e-06)
+scale = Vector2(0.11, 0.114999995)
+texture = ExtResource("3_bf7sb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1556139949]
 shape = SubResource("RectangleShape2D_qnbew")
