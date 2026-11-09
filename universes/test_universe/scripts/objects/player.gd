@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 var speed = 320.0
 var jump_speed = -400.0
+var crouching = false
 
 var movement_stasis : bool = false
 var in_dialogue : bool = false
