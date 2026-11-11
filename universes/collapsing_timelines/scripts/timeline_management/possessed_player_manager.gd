@@ -10,3 +10,8 @@ func get_current_player() -> PossessableCharacter:
 
 func get_inactive_player() -> PossessableCharacter:
 		return current_character if timeline_manager.in_past else past_character
+
+# Connected via Godot signal manager
+func _on_timeline_manager_timeline_changed(now_in_past: bool) -> void:
+	get_inactive_player().set_possessed(false)
+	get_current_player().set_possessed(true)
