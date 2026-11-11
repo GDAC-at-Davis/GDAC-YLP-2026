@@ -2,13 +2,14 @@
 
 [ext_resource type="Script" uid="uid://clt6k23qouf1h" path="res://universes/collapsing_timelines/scripts/rooms/world.gd" id="1_b58p3"]
 [ext_resource type="PackedScene" uid="uid://h7uj3ojtk722" path="res://universes/collapsing_timelines/scenes/rooms/level.tscn" id="2_aaqxg"]
+[ext_resource type="Script" uid="uid://cga0k4sq5mvfe" path="res://universes/collapsing_timelines/scripts/timeline_management/possessed_player_manager.gd" id="2_o51gu"]
 [ext_resource type="Script" uid="uid://b66i68oflemls" path="res://universes/collapsing_timelines/scripts/timeline_management/timeline_manager.gd" id="3_o51gu"]
 [ext_resource type="PackedScene" uid="uid://diut4c7nhlaqc" path="res://universes/collapsing_timelines/scenes/rooms/level_2.tscn" id="3_pb8bk"]
 [ext_resource type="PackedScene" uid="uid://dr1tgatvfyklb" path="res://universes/collapsing_timelines/scenes/objects/player.tscn" id="4_o51gu"]
 [ext_resource type="Script" uid="uid://d32ai8xraui4i" path="res://universes/collapsing_timelines/scripts/objects/camera_2d.gd" id="5_escfi"]
 [ext_resource type="Script" uid="uid://cwm0k4kaxuy2f" path="res://universes/collapsing_timelines/scripts/objects/camera_helper.gd" id="6_er2uw"]
 [ext_resource type="Script" uid="uid://q6ptw7d5vj70" path="res://universes/collapsing_timelines/scripts/rooms/camera_area.gd" id="7_r25u4"]
-[ext_resource type="Script" uid="uid://h6bflden64je" path="res://universes/collapsing_timelines/scripts/timeline_management/player_manager.gd" id="8_aaqxg"]
+[ext_resource type="Script" uid="uid://h6bflden64je" path="res://universes/collapsing_timelines/scripts/movement/keyboard_input_mgr.gd" id="8_aaqxg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ictb"]
 size = Vector2(639.2885, 311)
@@ -21,20 +22,24 @@ size = Vector2(639.2885, 312)
 [node name="World" type="Node" unique_id=1562650878 node_paths=PackedStringArray("camera", "camera_helper")]
 script = ExtResource("1_b58p3")
 camera = NodePath("CurrentTimeline/Test Camera2D")
-camera_helper = NodePath("Test CameraHelper")
+camera_helper = NodePath("CameraHelper")
 
-[node name="PlayerManager" type="Node" parent="." unique_id=677194619 node_paths=PackedStringArray("timeline_manager", "current_character", "past_character")]
-script = ExtResource("8_aaqxg")
+[node name="PossessedPlayerManager" type="Node" parent="." unique_id=399445404 node_paths=PackedStringArray("timeline_manager", "current_character", "past_character")]
+script = ExtResource("2_o51gu")
 timeline_manager = NodePath("../TimelineManager")
 current_character = NodePath("../CurrentTimeline/CurrentCharacter")
 past_character = NodePath("../PastTimeline/PastCharacter")
 
+[node name="KeyboardInputManager" type="Node" parent="." unique_id=677194619 node_paths=PackedStringArray("player_manager")]
+script = ExtResource("8_aaqxg")
+player_manager = NodePath("../PossessedPlayerManager")
+
 [node name="TimelineManager" type="Node" parent="." unique_id=246263158]
 script = ExtResource("3_o51gu")
 
-[node name="Test CameraHelper" type="Node2D" parent="." unique_id=347084110 node_paths=PackedStringArray("player_manager", "timeline_manager", "present_camera_triggers", "past_camera_triggers")]
+[node name="CameraHelper" type="Node2D" parent="." unique_id=347084110 node_paths=PackedStringArray("player_manager", "timeline_manager", "present_camera_triggers", "past_camera_triggers")]
 script = ExtResource("6_er2uw")
-player_manager = NodePath("../PlayerManager")
+player_manager = NodePath("../PossessedPlayerManager")
 timeline_manager = NodePath("../TimelineManager")
 present_camera_triggers = [NodePath("../CurrentTimeline/Camera Area"), NodePath("../CurrentTimeline/Camera Area2")]
 past_camera_triggers = [NodePath("../PastTimeline/Camera Area"), NodePath("../PastTimeline/Camera Area2")]
@@ -130,7 +135,7 @@ shape = SubResource("RectangleShape2D_ck0hu")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PastTimeline/Camera Area2/CollisionShape2D/Camera Point" unique_id=1699282430]
 shape = SubResource("RectangleShape2D_irbbj")
 
-[connection signal="timeline_changed" from="TimelineManager" to="PlayerManager" method="_on_timeline_manager_timeline_changed"]
+[connection signal="timeline_changed" from="TimelineManager" to="KeyboardInputManager" method="_on_timeline_manager_timeline_changed"]
 [connection signal="body_entered" from="CurrentTimeline/Camera Area" to="CurrentTimeline/Camera Area" method="_on_body_entered"]
 [connection signal="body_exited" from="CurrentTimeline/Camera Area" to="CurrentTimeline/Camera Area" method="_on_body_exited"]
 [connection signal="body_entered" from="CurrentTimeline/Camera Area2" to="CurrentTimeline/Camera Area2" method="_on_body_entered"]

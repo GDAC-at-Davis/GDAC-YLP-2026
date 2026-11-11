@@ -4,7 +4,7 @@ extends Node2D
 @export var follow_player: bool = true
 
 # This should be the World node
-@export var player_manager: PlayerManager
+@export var player_manager: PossessedPlayerManager
 @export var timeline_manager: TimelineManager
 @export var present_camera_triggers: Array[Node]
 @export var past_camera_triggers: Array[Node]
