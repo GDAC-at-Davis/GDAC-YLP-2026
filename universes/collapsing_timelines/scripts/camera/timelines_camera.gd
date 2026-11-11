@@ -6,15 +6,16 @@ class_name TimelinesCamera
 @export var zoom_speed: float = 12.0
 
 var active_modes: Dictionary[CameraArea, CameraMode]
+var sorted_modes: Dictionary[CameraArea, CameraMode]
 
 func _ready() -> void:
-	timeline_manager.timeline_changed.connect()
+	timeline_manager.timeline_changed.connect(on_timeline_changed)
 
 func _physics_process(delta: float) -> void:
-	if (active_modes.is_empty()): return
+	if (sorted_modes.is_empty()): return
 	
-	var target_pos: Vector2 = active_modes.values()[0].get_camera_target()
-	var target_zoom: Vector2 = active_modes.values()[0].get_camera_zoom()
+	var target_pos: Vector2 = sorted_modes.values()[0].get_camera_target()
+	var target_zoom: Vector2 = sorted_modes.values()[0].get_camera_zoom()
 	global_position = lerp(global_position, target_pos, position_lerp_speed * delta)
 	zoom = lerp(zoom, target_zoom, zoom_speed * delta)
 	
@@ -31,11 +32,18 @@ func remove_camera_mode(mode_owner: Object) -> void:
 func sort_camera_modes() -> void:
 	var keys: Array[CameraArea] = active_modes.keys()
 	keys.sort_custom(func(x: CameraArea, y: CameraArea) -> bool: return active_modes[x].priority > active_modes[y].priority)
-	var new_dict: Dictionary[CameraArea, CameraMode]
+	sorted_modes.clear()
 	
 	for key in keys:
-		new_dict.get_or_add(key, active_modes[key])
-	
-	active_modes = new_dict
+		if (key.timeline != timeline_manager.current_timeline): continue
+		
+		sorted_modes.get_or_add(key, active_modes[key])
 
-func on_timeline_changed()
+func on_timeline_changed(_new_timeline: TimelineManager.TimelineState) -> void:
+	sort_camera_modes()
+	
+	# Snap to camera target in new timeline
+	var target_pos: Vector2 = sorted_modes.values()[0].get_camera_target()
+	var target_zoom: Vector2 = sorted_modes.values()[0].get_camera_zoom()
+	global_position = target_pos
+	zoom = target_zoom
