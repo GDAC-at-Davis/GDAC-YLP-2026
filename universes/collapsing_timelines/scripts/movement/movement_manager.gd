@@ -2,7 +2,7 @@ extends Node
 class_name MovementManager
 
 func _physics_process(delta: float) -> void:
-	UpdateMovement(delta)
+	update_movement(delta)
 	
-func UpdateMovement(delta: float) -> void:
+func update_movement(_delta: float) -> void:
 	pass
