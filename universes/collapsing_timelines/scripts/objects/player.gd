@@ -25,3 +25,7 @@ func handle_movement(horizontal_input: float, force: bool = false) -> void:
 	if horizontal_input != 0:
 		var facing_right = horizontal_input > 0
 		$Sprite2D.flip_h = !facing_right
+
+func set_possessed(possessed: bool) -> void:
+	super.set_possessed(possessed)
+	$ColorRect.self_modulate = Color("green") if possessed else Color("red")
