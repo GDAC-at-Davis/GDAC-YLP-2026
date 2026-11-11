@@ -8,7 +8,7 @@ const TimelineState = TimelineManager.TimelineState
 @export var timeline_manager: TimelineManager
 @export var timeline_state: TimelineState
 
-func UpdateMovement(delta: float) -> void:
+func update_movement(_delta: float) -> void:
 	if (managed_player._is_possessed): return
 	
 	var opposite_state: TimelineState = timeline_manager.get_opposite_timeline(timeline_state)
