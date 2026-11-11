@@ -9,6 +9,7 @@ func _ready() -> void:
 	static_mode = StaticCameraMode.new()
 	static_mode.camera_focus = focus_point.global_position
 	static_mode.priority = mode_priority
+	static_mode.target_zoom = zoom
 
 func on_player_entered(_player: Node2D) -> void:
 	camera.register_camera_mode(self, static_mode)

@@ -7,6 +7,7 @@ var follow_mode: FollowPlayerMode
 func _ready() -> void:
 	follow_mode = FollowPlayerMode.new()
 	follow_mode.player_offset = player_focus_offset
+	follow_mode.target_zoom = zoom
 
 func on_player_entered(player: Node2D) -> void:
 	follow_mode.target_player = player
