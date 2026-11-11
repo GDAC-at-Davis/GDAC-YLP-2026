@@ -6,7 +6,7 @@ class_name PossessableCharacter
 var _is_possessed: bool = false
 
 func _ready() -> void:
-	_is_possessed = possessed_by_default
+	set_possessed(possessed_by_default)
 
 func handle_movement(_horizontal_input: float, _force: bool = false) -> void:
 	pass

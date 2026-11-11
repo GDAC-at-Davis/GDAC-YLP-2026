@@ -152,8 +152,8 @@ shape = SubResource("RectangleShape2D_ck0hu")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PastTimeline/Camera Area2/CollisionShape2D/Camera Point" unique_id=1699282430]
 shape = SubResource("RectangleShape2D_irbbj")
 
-[connection signal="timeline_changed" from="TimelineManager" to="KeyboardInputManager" method="_on_timeline_manager_timeline_changed"]
 [connection signal="timeline_changed" from="TimelineManager" to="PossessedPlayerManager" method="_on_timeline_manager_timeline_changed"]
+[connection signal="timeline_changed" from="TimelineManager" to="KeyboardInputManager" method="_on_timeline_manager_timeline_changed"]
 [connection signal="body_entered" from="PresentTimeline/Camera Area" to="PresentTimeline/Camera Area" method="_on_body_entered"]
 [connection signal="body_exited" from="PresentTimeline/Camera Area" to="PresentTimeline/Camera Area" method="_on_body_exited"]
 [connection signal="body_entered" from="PresentTimeline/Camera Area2" to="PresentTimeline/Camera Area2" method="_on_body_entered"]
