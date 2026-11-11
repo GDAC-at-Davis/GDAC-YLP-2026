@@ -1,10 +1,18 @@
 extends CharacterBody2D
 class_name PossessableCharacter
 
-var _is_possessed:bool = false
+@export var possessed_by_default: bool = false
 
-func handle_movement(horizontal_input: float) -> void:
+var _is_possessed: bool = false
+
+func _ready() -> void:
+	_is_possessed = possessed_by_default
+
+func handle_movement(_horizontal_input: float, _force: bool = false) -> void:
 	pass
 
-func handle_jump() -> void:
+func handle_jump(_force: bool = false) -> void:
 	pass
+
+func set_possessed(possessed: bool) -> void:
+	_is_possessed = possessed

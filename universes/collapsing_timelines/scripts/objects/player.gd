@@ -9,13 +9,16 @@ func _physics_process(delta):
 
 	move_and_slide()
 	
-func handle_jump() -> void:
+func handle_jump(force: bool = false) -> void:
+	if (!_is_possessed && !force): return
 	# Handle Jump.
 	if (!is_on_floor()):
 		return
 	velocity.y = jump_speed
 
-func handle_movement(horizontal_input: float) -> void:
+func handle_movement(horizontal_input: float, force: bool = false) -> void:
+	if (!_is_possessed && !force): return
+	
 	# Get the input direction.
 	velocity.x = horizontal_input * speed
 	
