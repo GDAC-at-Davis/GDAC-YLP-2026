@@ -7,22 +7,24 @@
 [ext_resource type="PackedScene" uid="uid://diut4c7nhlaqc" path="res://universes/collapsing_timelines/scenes/rooms/level_2.tscn" id="3_pb8bk"]
 [ext_resource type="Script" uid="uid://d1umo8aupr8v5" path="res://universes/collapsing_timelines/scripts/movement/follow_input_mgr.gd" id="4_escfi"]
 [ext_resource type="PackedScene" uid="uid://dr1tgatvfyklb" path="res://universes/collapsing_timelines/scenes/objects/player.tscn" id="4_o51gu"]
-[ext_resource type="Script" uid="uid://d32ai8xraui4i" path="res://universes/collapsing_timelines/scripts/objects/camera_2d.gd" id="5_escfi"]
+[ext_resource type="Script" uid="uid://d32ai8xraui4i" path="res://universes/collapsing_timelines/scripts/camera/camera_2d.gd" id="5_escfi"]
 [ext_resource type="Script" uid="uid://cwm0k4kaxuy2f" path="res://universes/collapsing_timelines/scripts/objects/camera_helper.gd" id="6_er2uw"]
-[ext_resource type="Script" uid="uid://q6ptw7d5vj70" path="res://universes/collapsing_timelines/scripts/rooms/camera_area.gd" id="7_r25u4"]
+[ext_resource type="Script" uid="uid://q6ptw7d5vj70" path="res://universes/collapsing_timelines/scripts/camera/camera_area.gd" id="7_r25u4"]
 [ext_resource type="Script" uid="uid://h6bflden64je" path="res://universes/collapsing_timelines/scripts/movement/keyboard_input_mgr.gd" id="8_aaqxg"]
+[ext_resource type="Script" uid="uid://b5ec6va3bdlhm" path="res://universes/collapsing_timelines/scripts/camera/areas/camera_follow_area.gd" id="11_r25u4"]
+[ext_resource type="Script" uid="uid://ul0e5qpnef4s" path="res://universes/collapsing_timelines/scripts/camera/areas/static_camera_area.gd" id="12_er2uw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ictb"]
 size = Vector2(639.2885, 311)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_irbbj"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ck0hu"]
 size = Vector2(639.2885, 312)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_irbbj"]
+
 [node name="World" type="Node" unique_id=1562650878 node_paths=PackedStringArray("camera", "camera_helper")]
 script = ExtResource("1_b58p3")
-camera = NodePath("PresentTimeline/Test Camera2D")
+camera = NodePath("Camera2D")
 camera_helper = NodePath("CameraHelper")
 
 [node name="PossessedPlayerManager" type="Node" parent="." unique_id=399445404 node_paths=PackedStringArray("timeline_manager", "current_character", "past_character")]
@@ -53,11 +55,18 @@ script = ExtResource("3_o51gu")
 present_timeline_root = NodePath("../PresentTimeline")
 past_timeline_root = NodePath("../PastTimeline")
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1507087289 node_paths=PackedStringArray("timeline_manager")]
+position = Vector2(320, 180)
+script = ExtResource("5_escfi")
+timeline_manager = NodePath("../TimelineManager")
+position_lerp_speed = null
+zoom_speed = null
+
 [node name="CameraHelper" type="Node2D" parent="." unique_id=347084110 node_paths=PackedStringArray("player_manager", "timeline_manager", "present_camera_triggers", "past_camera_triggers")]
 script = ExtResource("6_er2uw")
 player_manager = NodePath("../PossessedPlayerManager")
 timeline_manager = NodePath("../TimelineManager")
-present_camera_triggers = [NodePath("../PresentTimeline/Camera Area"), NodePath("../PresentTimeline/Camera Area2")]
+present_camera_triggers = [NodePath("../PresentTimeline/PlayerFollowArea"), NodePath("../PresentTimeline/StaticCameraArea")]
 past_camera_triggers = [NodePath("../PastTimeline/Camera Area"), NodePath("../PastTimeline/Camera Area2")]
 
 [node name="PresentTimeline" type="Node2D" parent="." unique_id=521400562]
@@ -71,42 +80,29 @@ position = Vector2(640, 0)
 position = Vector2(82, 288)
 possessed_by_default = true
 
-[node name="Test Camera2D" type="Camera2D" parent="PresentTimeline" unique_id=1507087289]
-position = Vector2(320, 180)
-script = ExtResource("5_escfi")
-
-[node name="Camera Area" type="Area2D" parent="PresentTimeline" unique_id=36670971 node_paths=PackedStringArray("world")]
+[node name="PlayerFollowArea" type="Area2D" parent="PresentTimeline" unique_id=36670971 node_paths=PackedStringArray("camera")]
 position = Vector2(319.00003, 160)
 scale = Vector2(1.0011129, 1)
-script = ExtResource("7_r25u4")
-zoom = Vector2(1.5, 1.5)
-camera_follow = true
-world = NodePath("../..")
+script = ExtResource("11_r25u4")
+camera = NodePath("../../Camera2D")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PresentTimeline/Camera Area" unique_id=1856459128]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PresentTimeline/PlayerFollowArea" unique_id=1856459128]
 position = Vector2(0.9987793, -3.5)
 shape = SubResource("RectangleShape2D_8ictb")
 
-[node name="Camera Point" type="Area2D" parent="PresentTimeline/Camera Area/CollisionShape2D" unique_id=1408907021 groups=["camera point"]]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PresentTimeline/Camera Area/CollisionShape2D/Camera Point" unique_id=1750301018]
-shape = SubResource("RectangleShape2D_irbbj")
-
-[node name="Camera Area2" type="Area2D" parent="PresentTimeline" unique_id=652545478 node_paths=PackedStringArray("world")]
+[node name="StaticCameraArea" type="Area2D" parent="PresentTimeline" unique_id=652545478 node_paths=PackedStringArray("focus_point", "camera")]
 position = Vector2(961, 160)
 scale = Vector2(1.0011129, 1)
-script = ExtResource("7_r25u4")
+script = ExtResource("12_er2uw")
+focus_point = NodePath("CollisionShape2D/CameraFocus")
+camera = NodePath("../../Camera2D")
 zoom = Vector2(1, 1)
-world = NodePath("../..")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PresentTimeline/Camera Area2" unique_id=160669328]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PresentTimeline/StaticCameraArea" unique_id=160669328]
 position = Vector2(-0.9987793, -4)
 shape = SubResource("RectangleShape2D_ck0hu")
 
-[node name="Camera Point" type="Area2D" parent="PresentTimeline/Camera Area2/CollisionShape2D" unique_id=390376083 groups=["camera point"]]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PresentTimeline/Camera Area2/CollisionShape2D/Camera Point" unique_id=877151625]
-shape = SubResource("RectangleShape2D_irbbj")
+[node name="CameraFocus" type="Node2D" parent="PresentTimeline/StaticCameraArea/CollisionShape2D" unique_id=986741330]
 
 [node name="PastTimeline" type="Node2D" parent="." unique_id=625400206]
 position = Vector2(0, 1000)
@@ -119,13 +115,10 @@ position = Vector2(640, 0)
 [node name="PastCharacter" parent="PastTimeline" unique_id=1582990206 groups=["player"] instance=ExtResource("4_o51gu")]
 position = Vector2(82, 288)
 
-[node name="Camera Area" type="Area2D" parent="PastTimeline" unique_id=1598901547 node_paths=PackedStringArray("world")]
+[node name="Camera Area" type="Area2D" parent="PastTimeline" unique_id=1598901547]
 position = Vector2(319.00003, 160)
 scale = Vector2(1.0011129, 1)
 script = ExtResource("7_r25u4")
-zoom = Vector2(1.5, 1.5)
-camera_follow = true
-world = NodePath("../..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PastTimeline/Camera Area" unique_id=1351204276]
 position = Vector2(0.9987793, -3.5)
@@ -136,12 +129,10 @@ shape = SubResource("RectangleShape2D_8ictb")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PastTimeline/Camera Area/CollisionShape2D/Camera Point" unique_id=335374829]
 shape = SubResource("RectangleShape2D_irbbj")
 
-[node name="Camera Area2" type="Area2D" parent="PastTimeline" unique_id=744618441 node_paths=PackedStringArray("world")]
+[node name="Camera Area2" type="Area2D" parent="PastTimeline" unique_id=744618441]
 position = Vector2(961, 160)
 scale = Vector2(1.0011129, 1)
 script = ExtResource("7_r25u4")
-zoom = Vector2(1, 1)
-world = NodePath("../..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PastTimeline/Camera Area2" unique_id=2009151284]
 position = Vector2(-0.9987793, -4)
@@ -154,10 +145,10 @@ shape = SubResource("RectangleShape2D_irbbj")
 
 [connection signal="timeline_changed" from="TimelineManager" to="PossessedPlayerManager" method="_on_timeline_manager_timeline_changed"]
 [connection signal="timeline_changed" from="TimelineManager" to="KeyboardInputManager" method="_on_timeline_manager_timeline_changed"]
-[connection signal="body_entered" from="PresentTimeline/Camera Area" to="PresentTimeline/Camera Area" method="_on_body_entered"]
-[connection signal="body_exited" from="PresentTimeline/Camera Area" to="PresentTimeline/Camera Area" method="_on_body_exited"]
-[connection signal="body_entered" from="PresentTimeline/Camera Area2" to="PresentTimeline/Camera Area2" method="_on_body_entered"]
-[connection signal="body_exited" from="PresentTimeline/Camera Area2" to="PresentTimeline/Camera Area2" method="_on_body_exited"]
+[connection signal="body_entered" from="PresentTimeline/PlayerFollowArea" to="PresentTimeline/PlayerFollowArea" method="_on_body_entered"]
+[connection signal="body_exited" from="PresentTimeline/PlayerFollowArea" to="PresentTimeline/PlayerFollowArea" method="_on_body_exited"]
+[connection signal="body_entered" from="PresentTimeline/StaticCameraArea" to="PresentTimeline/StaticCameraArea" method="_on_body_entered"]
+[connection signal="body_exited" from="PresentTimeline/StaticCameraArea" to="PresentTimeline/StaticCameraArea" method="_on_body_exited"]
 [connection signal="body_entered" from="PastTimeline/Camera Area" to="PastTimeline/Camera Area" method="_on_body_entered"]
 [connection signal="body_exited" from="PastTimeline/Camera Area" to="PastTimeline/Camera Area" method="_on_body_exited"]
 [connection signal="body_entered" from="PastTimeline/Camera Area2" to="PastTimeline/Camera Area2" method="_on_body_entered"]
