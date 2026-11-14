@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0w6okv7rwrr8"]
+
+[ext_resource type="Texture2D" uid="uid://cedq6vvx5igdy" path="res://universes/test_universe/assets/sprites/test_player.png" id="1_2p6be"]
+[ext_resource type="Script" uid="uid://cghk3qpayffap" path="res://universes/Toy_World/scripts/toy_player.gd" id="1_tvnu2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tvnu2"]
+size = Vector2(26, 45)
+
+[node name="ToyPlayer" type="CharacterBody2D"]
+script = ExtResource("1_tvnu2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_2p6be")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tvnu2")
