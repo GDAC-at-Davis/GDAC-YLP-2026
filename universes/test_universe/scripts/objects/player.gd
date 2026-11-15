@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed = 320.0
+var speed = 300.0
 var jump_speed = -400.0
 
 var movement_stasis : bool = false
