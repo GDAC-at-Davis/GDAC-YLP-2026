@@ -1,19 +1,25 @@
 extends CharacterBody2D
 
+#PLAYER SPEEDS
 var speed = 300.0
 var shift_speed = 600.0
 var jump_speed = -400.0
+var crouch_speed = 150.0
+#PLAYER STATES
 var crouching = false
+var Mask = false
+var sprinting = false
 
 func _physics_process(delta):
 	
+	#Crouching 
 	if Input.is_action_just_pressed("down"):
 		crouching = not crouching
-	
 	if crouching:
-		speed = 150.0
+		speed = crouch_speed
 	else:
 		speed = 300.0
+		
 	# Add the gravity.
 	velocity += get_gravity() * delta
 
@@ -23,10 +29,20 @@ func _physics_process(delta):
 
 	# Get the input direction.
 	var direction = Input.get_axis("left", "right")
-	if Input.is_action_pressed("Run") and direction and crouching != true:
-		velocity.x = direction * shift_speed
+	
+	sprinting = Input.is_action_pressed("Run")
+	
+	if direction and crouching != true:
+		if sprinting:
+			velocity.x = direction * shift_speed
+		else:
+			velocity.x = direction * speed
+	elif direction and crouching:
+		velocity.x = direction * crouch_speed
+		if sprinting:
+			crouching = false
 	else:
-		velocity.x = direction * speed
+		velocity.x = 0
 	
 	if direction != 0:
 		var facing_right = direction > 0
@@ -36,20 +52,18 @@ func _physics_process(delta):
 	
 	
 	
-	
-	
-var MaskOn = false
+
 var Mask_Timer = 10.0
 #if u dont know and are reading this, delta is the time since last frame
 func mask(delta):
-	if Input.is_action_just_pressed("Equip_Mask") and Mask_Timer >= 3.0:
-		MaskOn = true
-	if MaskOn:
+	if Input.is_action_just_pressed("custom1") and Mask_Timer >= 3.0:
+		Mask = true
+	if Mask:
 		Mask_Timer -= delta
 		
 		if Mask_Timer <= 0.0:
-			MaskOn = false
+			Mask = false
 	else:
-		MaskOn = false
+		Mask = false
 		Mask_Timer += delta
 		Mask_Timer = min(Mask_Timer, 10.0)
