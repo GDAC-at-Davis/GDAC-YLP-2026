@@ -9,7 +9,6 @@ extends Node
 var current_beat: int = 0
 
 func _ready() -> void:
-	# Calculate interval in seconds: 60 seconds / BPM
 	var interval = 45.0 / bpm
 	timer.wait_time = interval
 	timer.timeout.connect(_on_beat_timeout)

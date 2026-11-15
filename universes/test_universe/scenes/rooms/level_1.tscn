@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://dwxy06ig3n53d" path="res://universes/test_universe/scripts/objects/camera_helper.gd" id="6_cte60"]
 [ext_resource type="Script" uid="uid://bv7ld76jla66e" path="res://universes/test_universe/scripts/rooms/camera_area.gd" id="8_8ictb"]
 [ext_resource type="Script" uid="uid://coba1ujub6ogs" path="res://universes/test_universe/scenes/rooms/metronome.gd" id="8_ck0hu"]
-[ext_resource type="AudioStream" uid="uid://ce46u75hb2100" path="res://soundreality-kick-drum-acoustic-sample-455285.mp3" id="9_ck0hu"]
+[ext_resource type="AudioStream" uid="uid://ce46u75hb2100" path="res://universes/test_universe/scenes/rooms/soundreality-kick-drum-acoustic-sample-455285.mp3" id="9_ck0hu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ictb"]
 size = Vector2(639.2885, 311)
