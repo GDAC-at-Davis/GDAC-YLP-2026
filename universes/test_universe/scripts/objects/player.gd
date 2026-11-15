@@ -11,26 +11,29 @@ func _physics_process(delta):
 	#print("movement_stasis " + str(movement_stasis))
 	if in_dialogue:
 		movement_stasis = true
+
 	if not movement_stasis:
 		# Add the gravity.
 		velocity += get_gravity() * delta
-	
+
 		# Handle Jump.
-		if Input.is_action_just_pressed("a") and is_on_floor():
+		if (Input.is_action_just_pressed("up") or Input.is_action_just_pressed("a")) and is_on_floor():
 			velocity.y = jump_speed
 
 		# Get the input direction.
 		var direction = Input.get_axis("left", "right")
 		velocity.x = direction * speed
-		
+
 		if direction != 0:
 			var facing_right = direction > 0
 			$Sprite2D.flip_h = !facing_right
-			
 
 		move_and_slide()
-	
+
 	# Debug: Detecting button inputs 
+	# custom_1: shift, space
+	# custom_2: q
+	# custom_3: e
 	var inputs = ["a", "b", "c", "custom_1", "custom_2", "custom_3"]
 	for i in inputs:
 		if Input.is_action_just_pressed(i):
