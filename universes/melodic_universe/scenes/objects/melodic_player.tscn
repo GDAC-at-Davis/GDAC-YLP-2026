@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://b3xrs3d8au3yx"]
+
+[ext_resource type="Script" uid="uid://bnvtxs503raym" path="res://universes/melodic_universe/scripts/objects/melodic_player.gd" id="1_1v06l"]
+[ext_resource type="Texture2D" uid="uid://b13asnn6ggihi" path="res://universes/melodic_universe/assets/sprites/gee_placeholder.jpg" id="2_h8ekt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qnbew"]
+size = Vector2(26, 45)
+
+[node name="Melodic_Player" type="CharacterBody2D" unique_id=993322269]
+script = ExtResource("1_1v06l")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1535311039]
+texture_filter = 1
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_h8ekt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1556139949]
+shape = SubResource("RectangleShape2D_qnbew")

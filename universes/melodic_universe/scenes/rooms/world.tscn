@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://usk5b7acwua2"]
+
+[ext_resource type="Script" uid="uid://d11vcmh4gymci" path="res://universes/melodic_universe/scripts/rooms/world.gd" id="1_nhhpd"]
+[ext_resource type="Script" uid="uid://coba1ujub6ogs" path="res://universes/melodic_universe/scripts/objects/metronome.gd" id="2_nhhpd"]
+[ext_resource type="AudioStream" uid="uid://ce46u75hb2100" path="res://universes/melodic_universe/assets/audio/soundreality-kick-drum-acoustic-sample-455285.mp3" id="3_krnbg"]
+[ext_resource type="PackedScene" uid="uid://b3xrs3d8au3yx" path="res://universes/melodic_universe/scenes/objects/melodic_player.tscn" id="4_1xuny"]
+[ext_resource type="PackedScene" uid="uid://bcfr3rrkl8a0h" path="res://universes/melodic_universe/scenes/rooms/test_level1.tscn" id="4_vbiah"]
+[ext_resource type="PackedScene" uid="uid://cbyn4ag2ntbct" path="res://universes/melodic_universe/scenes/rooms/test_level2.tscn" id="5_1xuny"]
+[ext_resource type="Script" uid="uid://cbs7uj8yji2s5" path="res://universes/melodic_universe/scripts/objects/camera_2d.gd" id="5_mk5v1"]
+[ext_resource type="Script" uid="uid://cl7bcm3xrxusy" path="res://universes/melodic_universe/scripts/rooms/camera_area.gd" id="5_q2bbb"]
+[ext_resource type="Script" uid="uid://brbjqdn38j4mb" path="res://universes/melodic_universe/scripts/objects/camera_helper.gd" id="6_y6sdy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1xuny"]
+size = Vector2(639.2885, 311)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q2bbb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mk5v1"]
+size = Vector2(639.2885, 312)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y6sdy"]
+
+[node name="Melodic World" type="Node" unique_id=1562650878 node_paths=PackedStringArray("player", "camera", "buddy")]
+script = ExtResource("1_nhhpd")
+player = NodePath("Melodic_Player")
+camera = NodePath("Camera2D")
+buddy = NodePath("CameraHelper")
+
+[node name="Test Level" parent="." unique_id=1728698247 instance=ExtResource("4_vbiah")]
+
+[node name="Test Level2" parent="." unique_id=2104715804 instance=ExtResource("5_1xuny")]
+position = Vector2(640, 0)
+
+[node name="Melodic_Player" parent="." unique_id=993322269 groups=["player"] instance=ExtResource("4_1xuny")]
+position = Vector2(57, 285)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=416892942]
+position = Vector2(320, 180)
+script = ExtResource("5_mk5v1")
+
+[node name="CameraHelper" type="Node2D" parent="." unique_id=809184653]
+script = ExtResource("6_y6sdy")
+
+[node name="Camera Area1" type="Area2D" parent="." unique_id=1658460925]
+position = Vector2(319.00003, 160)
+scale = Vector2(1.0011129, 1)
+script = ExtResource("5_q2bbb")
+zoom = Vector2(1.5, 1.5)
+camera_follow = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera Area1" unique_id=653082082]
+position = Vector2(0.9987793, -3.5)
+shape = SubResource("RectangleShape2D_1xuny")
+
+[node name="Camera Point" type="Area2D" parent="Camera Area1/CollisionShape2D" unique_id=1007641558 groups=["camera point"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera Area1/CollisionShape2D/Camera Point" unique_id=1827688706]
+shape = SubResource("RectangleShape2D_q2bbb")
+
+[node name="Camera Area2" type="Area2D" parent="." unique_id=1578652268]
+position = Vector2(1018, 445)
+scale = Vector2(1.0011129, 1)
+script = ExtResource("5_q2bbb")
+zoom = Vector2(1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera Area2" unique_id=1466615967]
+position = Vector2(-57.935535, -290)
+shape = SubResource("RectangleShape2D_mk5v1")
+
+[node name="Camera Point" type="Area2D" parent="Camera Area2/CollisionShape2D" unique_id=1753739563 groups=["camera point"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera Area2/CollisionShape2D/Camera Point" unique_id=1453546766]
+shape = SubResource("RectangleShape2D_y6sdy")
+
+[node name="Metronome" type="Node2D" parent="." unique_id=218369003]
+script = ExtResource("2_nhhpd")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Metronome" unique_id=1032073066]
+stream = ExtResource("3_krnbg")
+volume_db = -17.16
+
+[node name="Timer" type="Timer" parent="Metronome" unique_id=460453159]
+
+[connection signal="body_entered" from="Camera Area1" to="Camera Area1" method="_on_body_entered"]
+[connection signal="body_exited" from="Camera Area1" to="Camera Area1" method="_on_body_exited"]
+[connection signal="body_entered" from="Camera Area2" to="Camera Area2" method="_on_body_entered"]
+[connection signal="body_exited" from="Camera Area2" to="Camera Area2" method="_on_body_exited"]
