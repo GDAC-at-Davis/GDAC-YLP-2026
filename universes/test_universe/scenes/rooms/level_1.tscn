@@ -7,8 +7,6 @@
 [ext_resource type="Script" uid="uid://b00nykr3emhyo" path="res://universes/test_universe/scripts/objects/camera_2d.gd" id="5_l1pg1"]
 [ext_resource type="Script" uid="uid://dwxy06ig3n53d" path="res://universes/test_universe/scripts/objects/camera_helper.gd" id="6_cte60"]
 [ext_resource type="Script" uid="uid://bv7ld76jla66e" path="res://universes/test_universe/scripts/rooms/camera_area.gd" id="8_8ictb"]
-[ext_resource type="Script" uid="uid://coba1ujub6ogs" path="res://universes/test_universe/scenes/rooms/metronome.gd" id="8_ck0hu"]
-[ext_resource type="AudioStream" uid="uid://ce46u75hb2100" path="res://universes/test_universe/scenes/rooms/soundreality-kick-drum-acoustic-sample-455285.mp3" id="9_ck0hu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ictb"]
 size = Vector2(639.2885, 311)
@@ -33,7 +31,6 @@ position = Vector2(640, 0)
 position = Vector2(115, 289)
 
 [node name="Test Camera2D" type="Camera2D" parent="." unique_id=1507087289]
-visible = false
 position = Vector2(320, 180)
 script = ExtResource("5_l1pg1")
 
@@ -70,15 +67,6 @@ shape = SubResource("RectangleShape2D_ck0hu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera Area2/CollisionShape2D/Camera Point" unique_id=877151625]
 shape = SubResource("RectangleShape2D_irbbj")
-
-[node name="Metronome" type="Node2D" parent="." unique_id=218369003]
-script = ExtResource("8_ck0hu")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Metronome" unique_id=1032073066]
-stream = ExtResource("9_ck0hu")
-volume_db = -17.16
-
-[node name="Timer" type="Timer" parent="Metronome" unique_id=460453159]
 
 [connection signal="body_entered" from="Camera Area" to="Camera Area" method="_on_body_entered"]
 [connection signal="body_exited" from="Camera Area" to="Camera Area" method="_on_body_exited"]
