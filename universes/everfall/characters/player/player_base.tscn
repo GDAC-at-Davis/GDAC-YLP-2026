@@ -1,0 +1,250 @@
+[gd_scene format=3 uid="uid://cf4se1vfcbhtt"]
+
+[ext_resource type="Script" uid="uid://b5jf8xa73eb6c" path="res://universes/everfall/characters/player/player.gd" id="1_8wive"]
+[ext_resource type="Texture2D" uid="uid://cnil81ed33yg6" path="res://universes/everfall/characters/player/temp_sprites/Character_Idle.png" id="2_8wive"]
+[ext_resource type="Texture2D" uid="uid://duofy5ln7tudj" path="res://universes/everfall/characters/player/temp_sprites/Character_Jump.png" id="3_ynydg"]
+[ext_resource type="Texture2D" uid="uid://bcv7vwf6yknp8" path="res://universes/everfall/characters/player/temp_sprites/Character_Walk.png" id="4_lv545"]
+
+[sub_resource type="Animation" id="Animation_lv545"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_8wive")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="Animation" id="Animation_8wive"]
+resource_name = "idle"
+length = 0.39999999999999997
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_8wive")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="Animation" id="Animation_bisn3"]
+resource_name = "jump"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_ynydg")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+
+[sub_resource type="Animation" id="Animation_ynydg"]
+resource_name = "move"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_lv545")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lv545"]
+_data = {
+&"RESET": SubResource("Animation_lv545"),
+&"idle": SubResource("Animation_8wive"),
+&"jump": SubResource("Animation_bisn3"),
+&"move": SubResource("Animation_ynydg")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ohmdg"]
+radius = 81.0
+height = 448.0
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ynydg"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lv545"]
+animation = &"jump"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_x8obn"]
+animation = &"move"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_i1kka"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_iy52i"]
+advance_mode = 2
+advance_condition = &"moving"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_62qfq"]
+advance_mode = 2
+advance_condition = &"jumping"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5yi22"]
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a6xyu"]
+advance_mode = 2
+advance_condition = &"on_floor"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_81qwk"]
+advance_mode = 2
+advance_condition = &"jumping"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_8wive"]
+states/Start/position = Vector2(120, 88.672)
+states/idle/node = SubResource("AnimationNodeAnimation_ynydg")
+states/idle/position = Vector2(315.4, 87.6)
+states/jump/node = SubResource("AnimationNodeAnimation_lv545")
+states/jump/position = Vector2(715.39996, 87.439995)
+states/move/node = SubResource("AnimationNodeAnimation_x8obn")
+states/move/position = Vector2(504.2, -9.200005)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_i1kka"), "idle", "move", SubResource("AnimationNodeStateMachineTransition_iy52i"), "move", "jump", SubResource("AnimationNodeStateMachineTransition_62qfq"), "move", "idle", SubResource("AnimationNodeStateMachineTransition_5yi22"), "jump", "idle", SubResource("AnimationNodeStateMachineTransition_a6xyu"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_81qwk")]
+graph_offset = Vector2(43, -18)
+
+[node name="CharacterBase" type="CharacterBody2D" unique_id=1249803750]
+script = ExtResource("1_8wive")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1268551306]
+root_node = NodePath("../Sprite2D")
+libraries/ = SubResource("AnimationLibrary_lv545")
+autoplay = &"idle"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=43959661]
+texture = ExtResource("2_8wive")
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=817221942]
+position = Vector2(-30, 29)
+shape = SubResource("CapsuleShape2D_ohmdg")
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=166500116]
+root_node = NodePath("../Sprite2D")
+tree_root = SubResource("AnimationNodeStateMachine_8wive")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/idle = false
+parameters/conditions/jumping = false
+parameters/conditions/moving = false
+parameters/conditions/on_floor = false
+
+[node name="Audio" type="Node" parent="." unique_id=1551505827]

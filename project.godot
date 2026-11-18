@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GDAC-YLP-26"
-run/main_scene="uid://cwyjnq0vqf4hv"
+run/main_scene="uid://c403aebluvjmp"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -31,6 +31,12 @@ window/stretch/aspect="expand"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://universes/everfall/": "orange"
+}
 
 [input]
 
