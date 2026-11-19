@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cf4se1vfcbhtt" path="res://universes/everfall/characters/player/player_base.tscn" id="5_nr70x"]
 [ext_resource type="Script" uid="uid://dwxy06ig3n53d" path="res://universes/test_universe/scripts/objects/camera_helper.gd" id="6_iy01a"]
 [ext_resource type="Script" uid="uid://bv7ld76jla66e" path="res://universes/test_universe/scripts/rooms/camera_area.gd" id="7_lp2k7"]
+[ext_resource type="PackedScene" uid="uid://dey3veyhfxlhx" path="res://universes/everfall/characters/player/player_ui/inventory.tscn" id="8_bhd55"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ictb"]
 size = Vector2(639.2885, 311)
@@ -68,6 +69,10 @@ shape = SubResource("RectangleShape2D_ck0hu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera Area2/CollisionShape2D/Camera Point" unique_id=877151625]
 shape = SubResource("RectangleShape2D_irbbj")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1161325111]
+
+[node name="Inventory" parent="CanvasLayer" unique_id=1258435564 instance=ExtResource("8_bhd55")]
 
 [connection signal="body_entered" from="Camera Area" to="Camera Area" method="_on_body_entered"]
 [connection signal="body_exited" from="Camera Area" to="Camera Area" method="_on_body_exited"]

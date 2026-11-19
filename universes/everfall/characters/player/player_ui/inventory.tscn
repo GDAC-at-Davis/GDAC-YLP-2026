@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://dey3veyhfxlhx"]
+
+[ext_resource type="Script" uid="uid://d4mnj1q3uj4xc" path="res://universes/everfall/characters/player/player_ui/inventory.gd" id="1_2880a"]
+[ext_resource type="Texture2D" uid="uid://1sb8qu7clesq" path="res://icon.svg" id="1_ww1w8"]
+[ext_resource type="Texture2D" uid="uid://dftcmmassl4j5" path="res://universes/everfall/items/icons/16_garlic.png" id="3_87i8k"]
+[ext_resource type="Texture2D" uid="uid://bl7we2wyoasmw" path="res://universes/everfall/items/icons/5_brownmushroom.png" id="4_3qmgd"]
+[ext_resource type="Texture2D" uid="uid://8tvdadihtfep" path="res://universes/everfall/items/icons/8_steakchunk.png" id="5_ee5m2"]
+
+[node name="Inventory" type="Control" unique_id=1258435564]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2880a")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1257556427]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.81900007
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = 0.15997314
+offset_right = -105.0
+offset_bottom = -3.0
+texture = ExtResource("1_ww1w8")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect" unique_id=557046585]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 6.0
+offset_right = -4.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button1" type="Button" parent="NinePatchRect/HBoxContainer" unique_id=857160429]
+custom_minimum_size = Vector2(50, 50)
+custom_maximum_size = Vector2(50, 50)
+layout_mode = 2
+toggle_mode = true
+icon = ExtResource("3_87i8k")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Button2" type="Button" parent="NinePatchRect/HBoxContainer" unique_id=204971757]
+custom_minimum_size = Vector2(50, 50)
+custom_maximum_size = Vector2(50, 50)
+layout_mode = 2
+toggle_mode = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Button3" type="Button" parent="NinePatchRect/HBoxContainer" unique_id=378909706]
+custom_minimum_size = Vector2(50, 50)
+custom_maximum_size = Vector2(50, 50)
+layout_mode = 2
+toggle_mode = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Button4" type="Button" parent="NinePatchRect/HBoxContainer" unique_id=78195298]
+custom_minimum_size = Vector2(50, 50)
+custom_maximum_size = Vector2(50, 50)
+layout_mode = 2
+toggle_mode = true
+icon = ExtResource("4_3qmgd")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Button5" type="Button" parent="NinePatchRect/HBoxContainer" unique_id=629282707]
+custom_minimum_size = Vector2(50, 50)
+custom_maximum_size = Vector2(50, 50)
+layout_mode = 2
+toggle_mode = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Button6" type="Button" parent="NinePatchRect/HBoxContainer" unique_id=393722502]
+custom_minimum_size = Vector2(50, 50)
+custom_maximum_size = Vector2(50, 50)
+layout_mode = 2
+toggle_mode = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Button7" type="Button" parent="NinePatchRect/HBoxContainer" unique_id=1340060284]
+custom_minimum_size = Vector2(50, 50)
+custom_maximum_size = Vector2(50, 50)
+layout_mode = 2
+toggle_mode = true
+icon = ExtResource("5_ee5m2")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Button8" type="Button" parent="NinePatchRect/HBoxContainer" unique_id=157727089]
+custom_minimum_size = Vector2(50, 50)
+custom_maximum_size = Vector2(50, 50)
+layout_mode = 2
+toggle_mode = true
+icon_alignment = 1
+expand_icon = true

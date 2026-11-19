@@ -1,0 +1,9 @@
+class_name Pickup
+extends Node2D
+
+@export var item: Item
+
+@onready var sprite: Sprite2D = $Sprite2D
+
+func _ready() -> void:
+	sprite.texture = item.icon

@@ -37,7 +37,7 @@ func _physics_process(delta: float):
 	
 	super(delta)
 	
-	if is_on_floor():
+	if is_on_floor() and not double_jump:
 		double_jump = true
 	
 	_manage_animation_tree_state()
