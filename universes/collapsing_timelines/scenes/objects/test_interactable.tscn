@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://ds4l0ecstn7g5"]
+
+[ext_resource type="Script" uid="uid://d26iwjdc3xa7p" path="res://universes/collapsing_timelines/scripts/interaction/interactable.gd" id="1_okp54"]
+[ext_resource type="Texture2D" uid="uid://k4juxsnal5tw" path="res://universes/collapsing_timelines/assets/sprites/test_player.png" id="1_vm2ps"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8cx1s"]
+size = Vector2(46, 46)
+
+[node name="TestInteractable" type="Node2D" unique_id=1810890228]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1798776781]
+scale = Vector2(1.667, 1)
+texture = ExtResource("1_vm2ps")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1812215687]
+script = ExtResource("1_okp54")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=205032341]
+shape = SubResource("RectangleShape2D_8cx1s")
