@@ -9,5 +9,6 @@ func _ready() -> void:
 	sprite.texture = item.icon
 
 
-func _on_interact() -> void:
-	print(item.type)
+func _on_interact(caller: Character) -> void:
+	caller.emit_signal("AddToInventory", item)
+	queue_free()

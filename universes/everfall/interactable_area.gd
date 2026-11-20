@@ -1,7 +1,7 @@
 class_name InteractableArea
 extends Area2D
 
-signal Interact()
+signal Interact(caller: Character)
 
 @onready var indicator: Label = $Indicator
 

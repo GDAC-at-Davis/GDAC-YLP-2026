@@ -86,6 +86,7 @@ item = SubResource("Resource_eunrx")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1161325111]
 
 [node name="Inventory" parent="CanvasLayer" unique_id=1258435564 instance=ExtResource("8_bhd55")]
+unique_name_in_owner = true
 
 [connection signal="body_entered" from="Camera Area" to="Camera Area" method="_on_body_entered"]
 [connection signal="body_exited" from="Camera Area" to="Camera Area" method="_on_body_exited"]

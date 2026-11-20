@@ -262,3 +262,5 @@ parameters/conditions/moving = false
 parameters/conditions/on_floor = false
 
 [node name="Audio" type="Node" parent="." unique_id=1551505827]
+
+[connection signal="AddToInventory" from="." to="." method="_on_add_to_inventory"]

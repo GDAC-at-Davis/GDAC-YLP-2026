@@ -1,7 +1,7 @@
 class_name PlayerBase
 extends Character 
 
-signal Interact()
+signal AddToInventory(new_item: Item)
 
 var _dead:bool = false
 
@@ -13,6 +13,7 @@ var double_jump : bool:
 
 @onready var animation_tree:AnimationTree = $AnimationTree
 @onready var interact_box: Area2D = $InteractBox
+@onready var inventory: Inventory = %Inventory
 
 func _ready():
 	animation_tree.active = true
@@ -67,8 +68,10 @@ func unbind_player_input_commands():
 func send_interact() -> void:
 	print("player interacting...")
 	for area in interact_box.get_overlapping_areas():
-		area.emit_signal("Interact")
+		area.emit_signal("Interact", self)
 	
+func _on_add_to_inventory(new_item: Item) -> void:
+	inventory.add_item(new_item)
 
 func resurrect() -> void:
 	_dead = false
