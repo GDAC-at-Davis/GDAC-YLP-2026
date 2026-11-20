@@ -2,9 +2,13 @@
 
 [ext_resource type="Script" uid="uid://cvl1c6lxvdhl3" path="res://universes/collapsing_timelines/scripts/objects/player.gd" id="1_pfglu"]
 [ext_resource type="Texture2D" uid="uid://k4juxsnal5tw" path="res://universes/collapsing_timelines/assets/sprites/test_player.png" id="2_8db46"]
+[ext_resource type="Script" uid="uid://cijwbifks5tu" path="res://universes/collapsing_timelines/scripts/interaction/player_interaction_area.gd" id="3_8db46"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qnbew"]
 size = Vector2(26, 45)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8cx1s"]
+size = Vector2(114, 76)
 
 [node name="Test Player" type="CharacterBody2D" unique_id=993322269]
 script = ExtResource("1_pfglu")
@@ -21,3 +25,15 @@ offset_left = -11.0
 offset_top = -28.0
 offset_right = 11.0
 offset_bottom = -24.0
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=636394558]
+script = ExtResource("3_8db46")
+
+[node name="InteractionTrigger" type="CollisionShape2D" parent="InteractionArea" unique_id=1462767642]
+shape = SubResource("RectangleShape2D_8cx1s")
+debug_color = Color(0.69288224, 0.49685222, 0, 0.41960785)
+
+[connection signal="area_entered" from="InteractionArea" to="InteractionArea" method="_on_area_entered"]
+[connection signal="area_exited" from="InteractionArea" to="InteractionArea" method="_on_area_exited"]
+[connection signal="body_entered" from="InteractionArea" to="InteractionArea" method="_on_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="InteractionArea" method="_on_body_exited"]

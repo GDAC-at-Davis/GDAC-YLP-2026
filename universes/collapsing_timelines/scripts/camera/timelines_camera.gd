@@ -43,6 +43,5 @@ func on_timeline_changed(_new_timeline: TimelineManager.TimelineState) -> void:
 	sort_camera_modes()
 	
 	# Move to camera target in new timeline
-	var target_pos: Vector2 = sorted_modes.values()[0].get_camera_target()
 	var old_timeline: TimelineManager.TimelineState = timeline_manager.get_opposite_timeline(timeline_manager.current_timeline)
 	global_position = timeline_manager.get_pos_in_other_timeline(global_position, old_timeline)
