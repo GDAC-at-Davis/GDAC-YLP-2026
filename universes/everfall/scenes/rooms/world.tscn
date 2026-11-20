@@ -8,6 +8,9 @@
 [ext_resource type="Script" uid="uid://dwxy06ig3n53d" path="res://universes/test_universe/scripts/objects/camera_helper.gd" id="6_iy01a"]
 [ext_resource type="Script" uid="uid://bv7ld76jla66e" path="res://universes/test_universe/scripts/rooms/camera_area.gd" id="7_lp2k7"]
 [ext_resource type="PackedScene" uid="uid://dey3veyhfxlhx" path="res://universes/everfall/characters/player/player_ui/inventory.tscn" id="8_bhd55"]
+[ext_resource type="PackedScene" uid="uid://c1il88cop2qtq" path="res://universes/everfall/items/pickup.tscn" id="8_bxjk1"]
+[ext_resource type="Texture2D" uid="uid://lh24jkge25hi" path="res://universes/everfall/items/icons/2_carrot.png" id="9_doxf7"]
+[ext_resource type="Script" uid="uid://8wbbknicxxl2" path="res://universes/everfall/items/item.gd" id="10_iy01a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ictb"]
 size = Vector2(639.2885, 311)
@@ -16,6 +19,12 @@ size = Vector2(639.2885, 311)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ck0hu"]
 size = Vector2(639.2885, 312)
+
+[sub_resource type="Resource" id="Resource_eunrx"]
+script = ExtResource("10_iy01a")
+type = 3
+icon = ExtResource("9_doxf7")
+metadata/_custom_type_script = "uid://8wbbknicxxl2"
 
 [node name="World" type="Node" unique_id=1562650878 node_paths=PackedStringArray("player", "camera", "buddy")]
 script = ExtResource("1_nr70x")
@@ -69,6 +78,10 @@ shape = SubResource("RectangleShape2D_ck0hu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera Area2/CollisionShape2D/Camera Point" unique_id=877151625]
 shape = SubResource("RectangleShape2D_irbbj")
+
+[node name="Pickup" parent="." unique_id=837965776 instance=ExtResource("8_bxjk1")]
+position = Vector2(206, 232)
+item = SubResource("Resource_eunrx")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1161325111]
 

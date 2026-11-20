@@ -3,22 +3,20 @@
 [ext_resource type="Script" uid="uid://b7qmsxvny22w7" path="res://universes/everfall/items/pickup.gd" id="1_h5jfx"]
 [ext_resource type="Script" uid="uid://8wbbknicxxl2" path="res://universes/everfall/items/item.gd" id="2_h5jfx"]
 [ext_resource type="Texture2D" uid="uid://ck3cgtt4s2tmn" path="res://universes/everfall/items/icons/12_pineapple.png" id="3_vju5x"]
+[ext_resource type="PackedScene" uid="uid://bh1nc4mhyfrdl" path="res://universes/everfall/interactable_area.tscn" id="4_eunrx"]
 
 [sub_resource type="Resource" id="Resource_w11f7"]
 script = ExtResource("2_h5jfx")
 metadata/_custom_type_script = "uid://8wbbknicxxl2"
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_vju5x"]
-radius = 80.23092
-
 [node name="Pickup" type="Node2D" unique_id=837965776]
+scale = Vector2(0.07999968, 0.07999968)
 script = ExtResource("1_h5jfx")
 item = SubResource("Resource_w11f7")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=285814423]
 texture = ExtResource("3_vju5x")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1790480936]
+[node name="InteractableArea" parent="." unique_id=1374711784 instance=ExtResource("4_eunrx")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=464560572]
-shape = SubResource("CircleShape2D_vju5x")
+[connection signal="Interact" from="InteractableArea" to="." method="_on_interact"]

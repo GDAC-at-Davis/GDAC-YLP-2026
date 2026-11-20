@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bh1nc4mhyfrdl"]
+
+[ext_resource type="Script" uid="uid://wmwp5odntpla" path="res://universes/everfall/interactable_area.gd" id="1_gkgpc"]
+[ext_resource type="Theme" uid="uid://bj5hpmmvk8nqv" path="res://universes/everfall/everfall_theme.tres" id="2_1fs00"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sxwiu"]
+radius = 80.23092
+
+[node name="InteractableArea" type="Area2D" unique_id=1374711784]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_gkgpc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=779975096]
+shape = SubResource("CircleShape2D_sxwiu")
+
+[node name="Indicator" type="Label" parent="." unique_id=1856153559]
+offset_left = -248.0
+offset_top = -284.0
+offset_right = 240.0
+offset_bottom = -109.0
+theme = ExtResource("2_1fs00")
+text = "Interact"
+horizontal_alignment = 1
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

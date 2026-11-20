@@ -1,6 +1,7 @@
 class_name PlayerBase
 extends Character 
 
+signal Interact()
 
 var _dead:bool = false
 
@@ -11,6 +12,7 @@ var double_jump : bool:
 		return double_jump
 
 @onready var animation_tree:AnimationTree = $AnimationTree
+@onready var interact_box: Area2D = $InteractBox
 
 func _ready():
 	animation_tree.active = true
@@ -26,6 +28,10 @@ func _physics_process(delta: float):
 
 	if Input.is_action_just_pressed("up"):
 		up_cmd.execute(self)
+		#command_callback("jump")
+		
+	if Input.is_action_just_pressed("custom_1"):
+		fire1.execute(self)
 		#command_callback("jump")
 	
 	if move_input > 0.1:
@@ -47,7 +53,7 @@ func bind_player_input_commands():
 	right_cmd = MoveCommand.new(true)
 	left_cmd = MoveCommand.new()
 	up_cmd = JumpCommand.new()
-	#fire1 = AttackCommand.new()
+	fire1 = InteractCommand.new()
 	idle = IdleCommand.new()
 
 
@@ -58,6 +64,11 @@ func unbind_player_input_commands():
 	fire1 = IdleCommand.new()
 	idle = IdleCommand.new()
 
+func send_interact() -> void:
+	print("player interacting...")
+	for area in interact_box.get_overlapping_areas():
+		area.emit_signal("Interact")
+	
 
 func resurrect() -> void:
 	_dead = false

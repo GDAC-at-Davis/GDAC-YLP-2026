@@ -7,3 +7,7 @@ extends Node2D
 
 func _ready() -> void:
 	sprite.texture = item.icon
+
+
+func _on_interact() -> void:
+	print(item.type)

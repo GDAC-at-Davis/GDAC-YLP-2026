@@ -46,7 +46,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_8wive"]
 resource_name = "idle"
-length = 0.39999999999999997
+length = 0.4
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -179,6 +179,10 @@ _data = {
 radius = 81.0
 height = 448.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x8obn"]
+radius = 140.0
+height = 450.0
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ynydg"]
 animation = &"idle"
 
@@ -237,6 +241,16 @@ hframes = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=817221942]
 position = Vector2(-30, 29)
 shape = SubResource("CapsuleShape2D_ohmdg")
+
+[node name="InteractBox" type="Area2D" parent="." unique_id=1659907469]
+position = Vector2(29, -28)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractBox" unique_id=331895829]
+position = Vector2(-60, 58)
+shape = SubResource("CapsuleShape2D_x8obn")
+debug_color = Color(0.88510084, 0.28970098, 0.43018112, 0.41960785)
 
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=166500116]
 root_node = NodePath("../Sprite2D")
