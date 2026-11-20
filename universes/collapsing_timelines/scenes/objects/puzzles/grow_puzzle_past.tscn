@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bg6qe5jsol6r0"]
+
+[ext_resource type="Script" uid="uid://dp4sddl7hb24n" path="res://universes/collapsing_timelines/scripts/puzzles/puzzle_base.gd" id="1_ffpgs"]
+[ext_resource type="Texture2D" uid="uid://qak17tsye58m" path="res://universes/collapsing_timelines/assets/sprites/shrub.png" id="2_du3eh"]
+[ext_resource type="Script" uid="uid://kmkkyptw1tcj" path="res://universes/collapsing_timelines/scripts/interaction/interactable_button.gd" id="2_ehsgs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8cx1s"]
+size = Vector2(194, 144)
+
+[node name="GrowPuzzlePast" type="Node2D" unique_id=1611938472 node_paths=PackedStringArray("interactable")]
+script = ExtResource("1_ffpgs")
+interactable = NodePath("Interactable")
+
+[node name="Interactable" type="Area2D" parent="." unique_id=1636057437]
+script = ExtResource("2_ehsgs")
+one_time_use = true
+metadata/_custom_type_script = "uid://kmkkyptw1tcj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=1041376879]
+shape = SubResource("RectangleShape2D_8cx1s")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1710101430]
+scale = Vector2(0.048185237, 0.04818523)
+texture = ExtResource("2_du3eh")
