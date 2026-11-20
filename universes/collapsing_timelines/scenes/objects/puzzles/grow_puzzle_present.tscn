@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bs8jxfgqullgw"]
+
+[ext_resource type="Script" uid="uid://dp4sddl7hb24n" path="res://universes/collapsing_timelines/scripts/puzzles/puzzle_base.gd" id="1_i8oeo"]
+[ext_resource type="Texture2D" uid="uid://d3f1tuomi281s" path="res://universes/collapsing_timelines/assets/sprites/log.png" id="2_i8oeo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8cx1s"]
+size = Vector2(116, 40)
+
+[node name="GrowPuzzlePresent" type="StaticBody2D" unique_id=32480952 node_paths=PackedStringArray("enable_when_completed")]
+script = ExtResource("1_i8oeo")
+enable_when_completed = [NodePath("CollisionShape2D")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1041376879]
+rotation = -3.1415925
+shape = SubResource("RectangleShape2D_8cx1s")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1710101430]
+position = Vector2(0, 4.9999995)
+rotation = 0.44737893
+scale = Vector2(0.21647567, 0.21647565)
+texture = ExtResource("2_i8oeo")

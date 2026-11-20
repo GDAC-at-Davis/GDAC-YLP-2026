@@ -8,9 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://dr1tgatvfyklb" path="res://universes/collapsing_timelines/scenes/objects/player.tscn" id="4_o51gu"]
 [ext_resource type="Script" uid="uid://d32ai8xraui4i" path="res://universes/collapsing_timelines/scripts/camera/timelines_camera.gd" id="5_escfi"]
 [ext_resource type="Script" uid="uid://h6bflden64je" path="res://universes/collapsing_timelines/scripts/movement/keyboard_input_mgr.gd" id="8_aaqxg"]
-[ext_resource type="PackedScene" uid="uid://ds4l0ecstn7g5" path="res://universes/collapsing_timelines/scenes/objects/test_interactable.tscn" id="11_escfi"]
+[ext_resource type="PackedScene" uid="uid://bs8jxfgqullgw" path="res://universes/collapsing_timelines/scenes/objects/puzzles/grow_puzzle_present.tscn" id="11_escfi"]
 [ext_resource type="Script" uid="uid://b5ec6va3bdlhm" path="res://universes/collapsing_timelines/scripts/camera/areas/camera_follow_area.gd" id="11_r25u4"]
 [ext_resource type="Script" uid="uid://ul0e5qpnef4s" path="res://universes/collapsing_timelines/scripts/camera/areas/static_camera_area.gd" id="12_er2uw"]
+[ext_resource type="PackedScene" uid="uid://bg6qe5jsol6r0" path="res://universes/collapsing_timelines/scenes/objects/puzzles/grow_puzzle_past.tscn" id="12_r25u4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ictb"]
 size = Vector2(639.2885, 311)
@@ -90,8 +91,9 @@ shape = SubResource("RectangleShape2D_ck0hu")
 
 [node name="CameraFocus" type="Node2D" parent="PresentTimeline/StaticCameraArea/CollisionShape2D" unique_id=986741330]
 
-[node name="TestInteractable" parent="PresentTimeline" unique_id=1810890228 instance=ExtResource("11_escfi")]
-position = Vector2(292, 289)
+[node name="GrowPuzzlePresent" parent="PresentTimeline" unique_id=1690961150 node_paths=PackedStringArray("required_puzzle") instance=ExtResource("11_escfi")]
+position = Vector2(529, 240)
+required_puzzle = NodePath("../../PastTimeline/GrowPuzzlePast")
 
 [node name="PastTimeline" type="Node2D" parent="." unique_id=625400206]
 position = Vector2(0, 1000)
@@ -127,6 +129,10 @@ position = Vector2(-0.9987793, -4)
 shape = SubResource("RectangleShape2D_ck0hu")
 
 [node name="CameraFocus" type="Node2D" parent="PastTimeline/StaticCameraArea/CollisionShape2D" unique_id=296498361]
+
+[node name="GrowPuzzlePast" parent="PastTimeline" unique_id=505025485 instance=ExtResource("12_r25u4")]
+position = Vector2(506, 236)
+scale = Vector2(0.52, 0.52)
 
 [connection signal="timeline_changed" from="TimelineManager" to="PossessedPlayerManager" method="_on_timeline_manager_timeline_changed"]
 [connection signal="timeline_changed" from="TimelineManager" to="KeyboardInputManager" method="_on_timeline_manager_timeline_changed"]
