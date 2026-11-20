@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name PossessableCharacter
 
+signal on_possessed_changed
+
 @export var possessed_by_default: bool = false
 
 var _is_possessed: bool = false
@@ -16,3 +18,4 @@ func handle_jump(_force: bool = false) -> void:
 
 func set_possessed(possessed: bool) -> void:
 	_is_possessed = possessed
+	on_possessed_changed.emit()
