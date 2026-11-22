@@ -1,0 +1,26 @@
+~ test_room_start
+Dakki: ...Hello? This thing on, or what?
+Gee: Oh! I can hear you now, Dakki! I was scared it wasn't gonna work for a bit there!
+Gee: Okay! Without further ado, explaining time!
+Gee: This dialogue is being run through Dialogue Manager, a neat plugin for Godot to make dialogue easier, and super customizable!
+Dakki: Seriously? You too busy to make your own dialogue system or something?
+Gee: Heyy, dialogue is super hard stuff, okay?! Besides, plugins are meant to be used! And there's still plenty of room for our own spin!
+Gee: You can weave functions in between dialogue beats, make choices, jump to different conversations, and lots more!
+Gee: There'd be a super cool example of this, but Nicholas didn't have enough time to make that.
+Gee: After all, he's working on this conversation at 4 AM! I can relate!
+Dakki: Okay, whatever. Can we just get this stupid dialogue box out of my face? It's covering too much of the screen!
+Gee: Of course! And you can customize the text box's appearance by having a dialogue 'balloon' in your universe's folder!
+Gee: Your 'balloon' determines the style of your dialogue text!
+Gee: Though you might have to configure a whole bunch of things to make the dialogue things exclusive to your universe.
+Dakki: Hey, I didn't ask for more information! Does it look like I care about this junk? I don't touch code with a ten foot pole!
+Gee: Aw, come on! Lemme at least say one more thing, Dakki!
+Gee: Anyways!! Two things you need to do to make your own dialogue!
+Gee: First! Make a dialogue scene like this one by either copying the .dialogue file or making a new one on the top tab that says "Dialogue"!
+Gee: Second! Trigger it either through an area trigger or NPC trigger! This place (room_dialogue) is a great blueprint for that!
+Gee: The main thing that triggers dialogue is a node called "DialogueActionable"! Use that to trigger your selected dialogue!
+Dakki: Can't they just watch the tutorial? It's in the YLP Tutorial Library, for crying out loud.
+Gee: OH YEAH! Do that!! I forgot! There's a tutorial that explains it wayyy better than me! Haha!
+Dakki: Okay, let's just get out of here already. Look, there's an NPC in this room too that has the default template dialogue.
+Gee: Really? Where?
+Dakki: You can't see it, because a certain DIALOGUE BOX is BLOCKING OUR VIEW! You'd better fix that!
+=> END

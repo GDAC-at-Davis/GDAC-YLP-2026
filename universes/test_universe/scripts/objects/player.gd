@@ -4,9 +4,11 @@ var speed = 320.0
 var jump_speed = -400.0
 
 var movement_stasis : bool = false
+var in_dialogue : bool = false
 
 func _physics_process(delta):
-	#print(movement_stasis)
+	if in_dialogue:
+		movement_stasis = true
 	if not movement_stasis:
 		# Add the gravity.
 		velocity += get_gravity() * delta

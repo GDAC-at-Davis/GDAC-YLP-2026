@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://bmc0b7yvm47tk"]
 
 [ext_resource type="Texture2D" uid="uid://cedq6vvx5igdy" path="res://universes/test_universe/assets/sprites/test_player.png" id="2_3lhtb"]
+[ext_resource type="Script" uid="uid://1rmql5i8oj5g" path="res://universes/test_universe/scripts/dialogue/npc_dialogue_actionable.gd" id="2_52eed"]
+[ext_resource type="Resource" uid="uid://7qng6ard1yto" path="res://universes/test_universe/dialogue/test_npc.dialogue" id="3_3lhtb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qnbew"]
 size = Vector2(26, 27)
@@ -35,8 +37,16 @@ offset_right = 29.0
 offset_bottom = 34.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_qnbew")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=300081280]
+[node name="DialogueActionable2D" type="Area2D" parent="." unique_id=1901196261]
+script = ExtResource("2_52eed")
+dialogue_resource = ExtResource("3_3lhtb")
+dialogue_cue = "test_npc_start"
+metadata/_custom_type_script = "uid://cqcur1rm7433g"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=644224411]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueActionable2D" unique_id=644224411]
 position = Vector2(0.5, -0.5)
 shape = SubResource("RectangleShape2D_rxec3")
+
+[connection signal="actioned" from="DialogueActionable2D" to="DialogueActionable2D" method="_on_actioned"]
+[connection signal="body_entered" from="DialogueActionable2D" to="DialogueActionable2D" method="_on_body_entered"]
+[connection signal="dialogue_ended" from="DialogueActionable2D" to="DialogueActionable2D" method="_on_dialogue_ended"]
