@@ -18,6 +18,13 @@ config/icon="res://icon.svg"
 [autoload]
 
 DialogueManager="*uid://c3rodes2l3gxb"
+GlobalSceneLoader="*uid://bb5tv6golt6ot"
+TestGameManager="*uid://22jwqw1n0eqh"
+TestSceneLoader="*uid://b87ueglcqtu8s"
+
+[dialogue_manager]
+
+runtime/balloon_path="res://universes/test_universe/dialogue/balloon/balloon.tscn"
 
 [display]
 
@@ -31,6 +38,11 @@ window/stretch/aspect="expand"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
+
+[global_group]
+
+player=""
+"camera point"=""
 
 [input]
 
