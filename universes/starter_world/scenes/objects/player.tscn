@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://d3pid33dp3ii"]
+
+[ext_resource type="Script" uid="uid://6eh8qgp0sti0" path="res://universes/starter_world/scripts/objects/player.gd" id="1_pbfdx"]
+[ext_resource type="Texture2D" uid="uid://d38vdghbxinat" path="res://universes/starter_world/assets/sprites/test_player.png" id="2_3np3e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qnbew"]
+size = Vector2(26, 45)
+
+[node name="Test Player" type="CharacterBody2D" unique_id=993322269]
+script = ExtResource("1_pbfdx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1535311039]
+texture_filter = 1
+texture = ExtResource("2_3np3e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1556139949]
+shape = SubResource("RectangleShape2D_qnbew")

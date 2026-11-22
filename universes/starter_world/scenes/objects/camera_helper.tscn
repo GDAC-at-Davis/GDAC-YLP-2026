@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cb57pvdsh8or3"]
+
+[ext_resource type="Script" uid="uid://jlu1lf6a1dlg" path="res://universes/starter_world/scripts/objects/camera_helper.gd" id="1_c16tb"]
+
+[node name="CameraHelper" type="Node2D" unique_id=1601657839]
+script = ExtResource("1_c16tb")

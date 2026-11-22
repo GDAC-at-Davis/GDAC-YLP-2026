@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://botkvhcxf07ur"]
+
+[ext_resource type="Texture2D" uid="uid://d38vdghbxinat" path="res://universes/starter_world/assets/sprites/test_player.png" id="1_58xbu"]
+[ext_resource type="Script" uid="uid://dp25gblrgoj1l" path="res://universes/starter_world/scripts/dialogue/npc_dialogue_actionable.gd" id="2_qmt52"]
+[ext_resource type="Resource" uid="uid://d22yebsu51v5b" path="res://universes/starter_world/dialogue/test_npc.dialogue" id="3_8t0iq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qnbew"]
+size = Vector2(26, 27)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qnbew"]
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.6689533, 2.201982e-06, 6.738305e-07, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rxec3"]
+bg_color = Color(1.4740043e-07, 0.1310778, 0.1310778, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(1, 1, 1, 0.6)
+shadow_size = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_qnbew"]
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0.6392157, 0.6392157, 0.6392157, 1)
+shadow_offset = Vector2(0.5, 0.7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rxec3"]
+size = Vector2(55, 67)
+
+[node name="Test NPC" type="StaticBody2D" unique_id=1034152570]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1535311039]
+texture_filter = 1
+position = Vector2(0, 0.25)
+scale = Vector2(-1, 0.5444)
+texture = ExtResource("1_58xbu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1556139949]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_qnbew")
+
+[node name="Panel" type="Panel" parent="." unique_id=1557127577]
+offset_left = -28.0
+offset_top = -35.0
+offset_right = 29.0
+offset_bottom = 34.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qnbew")
+
+[node name="DialogueActionable2D" type="Area2D" parent="." unique_id=1901196261]
+script = ExtResource("2_qmt52")
+repeatable = true
+dialogue_resource = ExtResource("3_8t0iq")
+dialogue_cue = "test_npc_start"
+metadata/_custom_type_script = "uid://cqcur1rm7433g"
+
+[node name="Indicator" type="Panel" parent="DialogueActionable2D" unique_id=1143000290]
+unique_name_in_owner = true
+visible = false
+offset_left = -15.0
+offset_top = -54.0
+offset_right = 15.0
+offset_bottom = -24.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_rxec3")
+
+[node name="Label" type="Label" parent="DialogueActionable2D/Indicator" unique_id=477028750]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 3.0
+offset_right = 22.0
+offset_bottom = 26.0
+text = "C"
+label_settings = SubResource("LabelSettings_qnbew")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueActionable2D" unique_id=644224411]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_rxec3")
+
+[connection signal="actioned" from="DialogueActionable2D" to="DialogueActionable2D" method="_on_actioned"]
+[connection signal="body_entered" from="DialogueActionable2D" to="DialogueActionable2D" method="_on_body_entered"]
+[connection signal="body_exited" from="DialogueActionable2D" to="DialogueActionable2D" method="_on_body_exited"]
+[connection signal="dialogue_ended" from="DialogueActionable2D" to="DialogueActionable2D" method="_on_dialogue_ended"]

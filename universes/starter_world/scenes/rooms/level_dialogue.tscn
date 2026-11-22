@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://d3ppobc6xbq7n"]
+
+[ext_resource type="Script" uid="uid://cr5v0c832cxbs" path="res://universes/starter_world/scripts/rooms/world.gd" id="1_lmggv"]
+[ext_resource type="PackedScene" uid="uid://b328vn0s7ckyd" path="res://universes/starter_world/scenes/rooms/room_dialogue.tscn" id="2_u78bo"]
+[ext_resource type="PackedScene" uid="uid://d3pid33dp3ii" path="res://universes/starter_world/scenes/objects/player.tscn" id="3_4uvay"]
+[ext_resource type="Script" uid="uid://6rapwqwl03qo" path="res://universes/starter_world/scripts/objects/camera_2d.gd" id="4_e3a65"]
+[ext_resource type="Script" uid="uid://jlu1lf6a1dlg" path="res://universes/starter_world/scripts/objects/camera_helper.gd" id="5_usspw"]
+
+[node name="World" type="Node" unique_id=1562650878 node_paths=PackedStringArray("player", "camera", "buddy")]
+script = ExtResource("1_lmggv")
+player = NodePath("Test Player")
+camera = NodePath("Test Camera2D")
+buddy = NodePath("Test CameraHelper")
+
+[node name="Test Level" parent="." unique_id=1728698247 instance=ExtResource("2_u78bo")]
+
+[node name="Test Player" parent="." unique_id=993322269 groups=["player"] instance=ExtResource("3_4uvay")]
+position = Vector2(147, 289)
+
+[node name="Test Camera2D" type="Camera2D" parent="." unique_id=1507087289]
+position = Vector2(320, 180)
+script = ExtResource("4_e3a65")
+
+[node name="Test CameraHelper" type="Node2D" parent="." unique_id=347084110]
+script = ExtResource("5_usspw")
