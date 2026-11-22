@@ -7,6 +7,8 @@ var movement_stasis : bool = false
 var in_dialogue : bool = false
 
 func _physics_process(delta):
+	#print("in_dialogue " + str(in_dialogue))
+	#print("movement_stasis " + str(movement_stasis))
 	if in_dialogue:
 		movement_stasis = true
 	if not movement_stasis:
