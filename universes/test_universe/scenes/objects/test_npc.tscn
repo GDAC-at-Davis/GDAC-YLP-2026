@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bmc0b7yvm47tk"]
+
+[ext_resource type="Texture2D" uid="uid://cedq6vvx5igdy" path="res://universes/test_universe/assets/sprites/test_player.png" id="2_3lhtb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qnbew"]
+size = Vector2(26, 27)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qnbew"]
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.6689533, 2.201982e-06, 6.738305e-07, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rxec3"]
+size = Vector2(55, 67)
+
+[node name="Test NPC" type="StaticBody2D" unique_id=1034152570]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1535311039]
+texture_filter = 1
+position = Vector2(0, 0.25)
+scale = Vector2(0.99999994, 0.54444444)
+texture = ExtResource("2_3lhtb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1556139949]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_qnbew")
+
+[node name="Panel" type="Panel" parent="." unique_id=1557127577]
+offset_left = -28.0
+offset_top = -35.0
+offset_right = 29.0
+offset_bottom = 34.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qnbew")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=300081280]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=644224411]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_rxec3")
