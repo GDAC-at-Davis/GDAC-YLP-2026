@@ -13,7 +13,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if (selected_interactable == null || !player._is_possessed): return
 	
-	if Input.is_action_just_pressed("jump"):
+	if Input.is_action_just_pressed("b"):
 		selected_interactable.interact()
 		# Interactables may only be able to be interacted with once
 		update_selected_interactable()

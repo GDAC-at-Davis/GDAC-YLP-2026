@@ -41,7 +41,7 @@ offset_left = -70.0
 offset_top = 3.0
 offset_right = -9.0
 offset_bottom = 26.0
-text = "\"Space\""
+text = "\"X\""
 
 [connection signal="area_entered" from="InteractionArea" to="InteractionArea" method="_on_area_entered"]
 [connection signal="area_exited" from="InteractionArea" to="InteractionArea" method="_on_area_exited"]

@@ -6,7 +6,7 @@ class_name KeyboardInputManager
 func update_movement(_delta: float) -> void:
 	var used_character = player_manager.get_current_player()
 	
-	if Input.is_action_just_pressed("jump"):
+	if Input.is_action_just_pressed("up"):
 		used_character.handle_jump()
 	
 	var direction = Input.get_axis("left", "right")
