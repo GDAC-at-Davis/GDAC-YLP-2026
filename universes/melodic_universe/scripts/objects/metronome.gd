@@ -17,11 +17,11 @@ func print_on_beat():
 		OnBeat.PERFECT:
 			print("PERFECT!")
 		OnBeat.GREAT:
-			print("  GREAT!")
+			print("GREAT!")
 		OnBeat.GOOD:
-			print("    GOOD!")
+			print("GOOD!")
 		OnBeat.BAD:
-			print("      BAD!")
+			print("BAD!")
 
 func _ready() -> void:
 	var interval = 60.0 / bpm
@@ -33,7 +33,7 @@ func _on_beat_timeout() -> void:
 	current_beat += 1
 	var current_sub_beat = current_beat % num_sub_beats
 	
-	# for num_sub_beats >= 6
+	# for num_sub_beats >= 8
 	if (current_sub_beat == 0):
 		audio_player.play()
 		on_beat = OnBeat.PERFECT

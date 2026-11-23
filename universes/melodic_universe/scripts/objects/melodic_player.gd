@@ -3,6 +3,11 @@ extends CharacterBody2D
 var speed = 300.0
 var jump_speed = -400.0
 
+var world: Node
+
+func _ready() -> void:
+	world = get_parent()
+	
 func _physics_process(delta):
 	# Add the gravity.
 	velocity += get_gravity() * delta
@@ -18,7 +23,10 @@ func _physics_process(delta):
 	if direction != 0:
 		var facing_right = direction > 0
 		$Sprite2D.flip_h = !facing_right
-		
+	
+	# Beat sync
+	if Input.is_action_just_pressed("melodic-beat"):
+		world.metronome.print_on_beat()
 
 	move_and_slide()
 	

@@ -20,11 +20,12 @@ size = Vector2(639.2885, 312)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y6sdy"]
 
-[node name="Melodic World" type="Node" unique_id=1562650878 node_paths=PackedStringArray("player", "camera", "buddy")]
+[node name="Melodic World" type="Node" unique_id=1562650878 node_paths=PackedStringArray("player", "camera", "buddy", "metronome")]
 script = ExtResource("1_nhhpd")
 player = NodePath("Melodic_Player")
 camera = NodePath("Camera2D")
 buddy = NodePath("CameraHelper")
+metronome = NodePath("Metronome")
 
 [node name="Test Level" parent="." unique_id=1728698247 instance=ExtResource("4_vbiah")]
 
