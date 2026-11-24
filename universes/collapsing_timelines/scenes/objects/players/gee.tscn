@@ -12,6 +12,14 @@ animations = [{
 "loop": 1,
 "name": &"idle_front",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3aarc")
+}],
+"loop": 1,
+"name": &"walking",
+"speed": 5.0
 }]
 
 [node name="Gee" unique_id=993322269 instance=ExtResource("1_ydypd")]
@@ -19,4 +27,4 @@ animations = [{
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=836036720]
 scale = Vector2(0.019, 0.019)
 sprite_frames = SubResource("SpriteFrames_r25u4")
-animation = &"idle_front"
+animation = &"walking"

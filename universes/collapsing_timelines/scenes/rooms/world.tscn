@@ -89,7 +89,7 @@ shape = SubResource("RectangleShape2D_ck0hu")
 [node name="CameraFocus" type="Node2D" parent="PresentTimeline/StaticCameraArea/CollisionShape2D" unique_id=986741330]
 
 [node name="GrowPuzzlePresent" parent="PresentTimeline" unique_id=1690961150 node_paths=PackedStringArray("required_puzzle") instance=ExtResource("11_escfi")]
-position = Vector2(529, 240)
+position = Vector2(529, 236)
 required_puzzle = NodePath("../../PastTimeline/GrowPuzzlePast")
 
 [node name="Dakki" parent="PresentTimeline" unique_id=993322269 instance=ExtResource("11_07705")]
