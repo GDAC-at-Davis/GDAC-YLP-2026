@@ -13,7 +13,7 @@ var current_timeline: TimelineState = TimelineState.Present:
 	set = set_new_timeline
 
 func _process(_delta: float) -> void:
-	if (Input.is_action_just_pressed("custom_2")):
+	if (Input.is_action_just_pressed("custom_1")):
 		set_new_timeline(get_opposite_timeline(current_timeline))
 	
 func get_current_timeline() -> TimelineState:
