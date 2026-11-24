@@ -3,6 +3,10 @@ extends PossessableCharacter
 var speed = 300.0
 var jump_speed = -400.0
 
+func _ready() -> void:
+	super._ready()
+	$AnimatedSprite2D.play("idle_front")
+
 func _physics_process(delta):
 	# Add the gravity.
 	velocity += get_gravity() * delta
@@ -22,9 +26,12 @@ func handle_movement(horizontal_input: float, force: bool = false) -> void:
 	# Get the input direction.
 	velocity.x = horizontal_input * speed
 	
+	var anim_clip: StringName = "walking" if abs(velocity.x) > 0 else "idle_front"
+	$AnimatedSprite2D.play(anim_clip)
+	
 	if horizontal_input != 0:
 		var facing_right = horizontal_input > 0
-		$Sprite2D.flip_h = !facing_right
+		$AnimatedSprite2D.flip_h = facing_right
 
 func set_possessed(possessed: bool) -> void:
 	super.set_possessed(possessed)

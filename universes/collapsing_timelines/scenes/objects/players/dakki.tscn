@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://c3byj3uvfntd0"]
+
+[ext_resource type="PackedScene" uid="uid://dr1tgatvfyklb" path="res://universes/collapsing_timelines/scenes/objects/player.tscn" id="1_0rh21"]
+[ext_resource type="Texture2D" uid="uid://cu24d8j3qr2y0" path="res://universes/collapsing_timelines/assets/sprites/dakki/dakki_standstill.png" id="2_lv2yw"]
+[ext_resource type="Texture2D" uid="uid://2rqksstvepx6" path="res://universes/collapsing_timelines/assets/sprites/dakki/dakki_walk_1.png" id="3_m32fx"]
+[ext_resource type="Texture2D" uid="uid://c08ylwq8070jl" path="res://universes/collapsing_timelines/assets/sprites/dakki/dakki_walk_2.png" id="4_6gcsu"]
+[ext_resource type="Texture2D" uid="uid://d2jafmsarpfrg" path="res://universes/collapsing_timelines/assets/sprites/dakki/dakki_walk_3.png" id="5_8eoyn"]
+[ext_resource type="Texture2D" uid="uid://c8au4v4he8wvk" path="res://universes/collapsing_timelines/assets/sprites/dakki/dakki_walk_4.png" id="6_gwpo3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pfglu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_lv2yw")
+}],
+"loop": 1,
+"name": &"idle_front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_m32fx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6gcsu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8eoyn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_gwpo3")
+}],
+"loop": 1,
+"name": &"walking",
+"speed": 5.0
+}]
+
+[node name="Dakki" unique_id=993322269 instance=ExtResource("1_0rh21")]
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=836036720]
+scale = Vector2(0.019, 0.019)
+sprite_frames = SubResource("SpriteFrames_pfglu")
+animation = &"idle_front"
