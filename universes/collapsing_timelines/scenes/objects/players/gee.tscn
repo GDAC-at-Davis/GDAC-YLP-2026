@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cmbj1w78btn8c"]
+
+[ext_resource type="PackedScene" uid="uid://dr1tgatvfyklb" path="res://universes/collapsing_timelines/scenes/objects/player.tscn" id="1_ydypd"]
+[ext_resource type="Texture2D" uid="uid://d1a4n2ndyihog" path="res://universes/collapsing_timelines/assets/sprites/gee/gee_idle.png" id="2_3aarc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r25u4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3aarc")
+}],
+"loop": 1,
+"name": &"idle_front",
+"speed": 5.0
+}]
+
+[node name="Gee" unique_id=993322269 instance=ExtResource("1_ydypd")]
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=836036720]
+scale = Vector2(0.019, 0.019)
+sprite_frames = SubResource("SpriteFrames_r25u4")
+animation = &"idle_front"

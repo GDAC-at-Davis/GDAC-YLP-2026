@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cu24d8j3qr2y0"
-path="res://.godot/imported/dakki_standstill.png-91e2e0dea4bf7acc015646b40cc90aaf.ctex"
+uid="uid://d1a4n2ndyihog"
+path="res://.godot/imported/gee_idle.png-ca2d95114ccf5182a75e547387084ae6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://universes/collapsing_timelines/assets/sprites/dakki/dakki_standstill.png"
-dest_files=["res://.godot/imported/dakki_standstill.png-91e2e0dea4bf7acc015646b40cc90aaf.ctex"]
+source_file="res://universes/collapsing_timelines/assets/sprites/gee/gee_idle.png"
+dest_files=["res://.godot/imported/gee_idle.png-ca2d95114ccf5182a75e547387084ae6.ctex"]
 
 [params]
 

@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://b5ec6va3bdlhm" path="res://universes/collapsing_timelines/scripts/camera/areas/camera_follow_area.gd" id="11_r25u4"]
 [ext_resource type="Script" uid="uid://ul0e5qpnef4s" path="res://universes/collapsing_timelines/scripts/camera/areas/static_camera_area.gd" id="12_er2uw"]
 [ext_resource type="PackedScene" uid="uid://bg6qe5jsol6r0" path="res://universes/collapsing_timelines/scenes/objects/puzzles/grow_puzzle_past.tscn" id="12_r25u4"]
+[ext_resource type="PackedScene" uid="uid://cmbj1w78btn8c" path="res://universes/collapsing_timelines/scenes/objects/players/gee.tscn" id="13_r25u4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ictb"]
 size = Vector2(639.2885, 311)
@@ -25,7 +26,7 @@ size = Vector2(639.2885, 312)
 script = ExtResource("2_o51gu")
 timeline_manager = NodePath("../TimelineManager")
 present_character = NodePath("../PresentTimeline/Dakki")
-past_character = NodePath("../PastTimeline/Dakki_Past_Temp")
+past_character = NodePath("../PastTimeline/Gee")
 
 [node name="KeyboardInputManager" type="Node" parent="." unique_id=677194619 node_paths=PackedStringArray("player_manager")]
 script = ExtResource("8_aaqxg")
@@ -34,13 +35,13 @@ player_manager = NodePath("../PossessedPlayerManager")
 [node name="PresentFollowManager" type="Node" parent="." unique_id=617880608 node_paths=PackedStringArray("managed_player", "target_player", "timeline_manager")]
 script = ExtResource("4_escfi")
 managed_player = NodePath("../PresentTimeline/Dakki")
-target_player = NodePath("../PastTimeline/Dakki_Past_Temp")
+target_player = NodePath("../PastTimeline/Gee")
 timeline_manager = NodePath("../TimelineManager")
 timeline_state = 1
 
 [node name="PastFollowManager" type="Node" parent="." unique_id=1979475634 node_paths=PackedStringArray("managed_player", "target_player", "timeline_manager")]
 script = ExtResource("4_escfi")
-managed_player = NodePath("../PastTimeline/Dakki_Past_Temp")
+managed_player = NodePath("../PastTimeline/Gee")
 target_player = NodePath("../PresentTimeline/Dakki")
 timeline_manager = NodePath("../TimelineManager")
 
@@ -131,7 +132,7 @@ shape = SubResource("RectangleShape2D_ck0hu")
 position = Vector2(506, 236)
 scale = Vector2(0.52, 0.52)
 
-[node name="Dakki_Past_Temp" parent="PastTimeline" unique_id=614369802 instance=ExtResource("11_07705")]
+[node name="Gee" parent="PastTimeline" unique_id=949183316 instance=ExtResource("13_r25u4")]
 position = Vector2(82, 288)
 
 [connection signal="timeline_changed" from="TimelineManager" to="PossessedPlayerManager" method="_on_timeline_manager_timeline_changed"]

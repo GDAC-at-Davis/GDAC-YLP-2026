@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c3byj3uvfntd0"]
 
 [ext_resource type="PackedScene" uid="uid://dr1tgatvfyklb" path="res://universes/collapsing_timelines/scenes/objects/player.tscn" id="1_0rh21"]
-[ext_resource type="Texture2D" uid="uid://cu24d8j3qr2y0" path="res://universes/collapsing_timelines/assets/sprites/dakki/dakki_standstill.png" id="2_lv2yw"]
+[ext_resource type="Texture2D" uid="uid://cu24d8j3qr2y0" path="res://universes/collapsing_timelines/assets/sprites/dakki/dakki_idle.png" id="2_lv2yw"]
 [ext_resource type="Texture2D" uid="uid://2rqksstvepx6" path="res://universes/collapsing_timelines/assets/sprites/dakki/dakki_walk_1.png" id="3_m32fx"]
 [ext_resource type="Texture2D" uid="uid://c08ylwq8070jl" path="res://universes/collapsing_timelines/assets/sprites/dakki/dakki_walk_2.png" id="4_6gcsu"]
 [ext_resource type="Texture2D" uid="uid://d2jafmsarpfrg" path="res://universes/collapsing_timelines/assets/sprites/dakki/dakki_walk_3.png" id="5_8eoyn"]
