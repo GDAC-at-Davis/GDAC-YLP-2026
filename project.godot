@@ -21,6 +21,7 @@ DialogueManager="*uid://c3rodes2l3gxb"
 GlobalSceneLoader="*uid://bb5tv6golt6ot"
 TestGameManager="*uid://22jwqw1n0eqh"
 TestSceneLoader="*uid://b87ueglcqtu8s"
+MelodicGameManager="*uid://bev6om0qr3q6"
 
 [dialogue_manager]
 
