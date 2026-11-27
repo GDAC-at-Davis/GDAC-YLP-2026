@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://m5qgtipkpug6"]
-
-[ext_resource type="Script" uid="uid://xiov8a13mn5" path="res://universes/dystopian_fms_universe/scripts/objects/camera_helper.gd" id="1_0hakv"]
-
-[node name="CameraHelper" type="Node2D" unique_id=1601657839]
-script = ExtResource("1_0hakv")
