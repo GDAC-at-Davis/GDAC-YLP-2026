@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dvho6njpbi62j" path="res://universes/test_universe/scripts/rooms/world.gd" id="1_kawvu"]
 [ext_resource type="PackedScene" uid="uid://dinecciykka02" path="res://universes/test_universe/scenes/rooms/room.tscn" id="2_qnkiq"]
 [ext_resource type="PackedScene" uid="uid://qso67iw3umhi" path="res://universes/test_universe/scenes/rooms/room_2.tscn" id="3_4ahq8"]
-[ext_resource type="PackedScene" uid="uid://p5kpsayh7g8a" path="res://universes/test_universe/scenes/objects/player.tscn" id="4_2datq"]
+[ext_resource type="PackedScene" uid="uid://o3vbbxnuc1wx" path="res://universes/dystopian_fms_universe/scenes/objects/dfms_player.tscn" id="4_kawvu"]
 [ext_resource type="Script" uid="uid://b00nykr3emhyo" path="res://universes/test_universe/scripts/objects/camera_2d.gd" id="5_aq8v0"]
 [ext_resource type="Script" uid="uid://dwxy06ig3n53d" path="res://universes/test_universe/scripts/objects/camera_helper.gd" id="6_qg15l"]
 [ext_resource type="Script" uid="uid://bv7ld76jla66e" path="res://universes/test_universe/scripts/rooms/camera_area.gd" id="7_iws2d"]
@@ -18,7 +18,7 @@ size = Vector2(639.2885, 312)
 
 [node name="World" type="Node" unique_id=1562650878 node_paths=PackedStringArray("player", "camera", "buddy")]
 script = ExtResource("1_kawvu")
-player = NodePath("Test Player")
+player = NodePath("")
 camera = NodePath("Test Camera2D")
 buddy = NodePath("Test CameraHelper")
 
@@ -27,8 +27,8 @@ buddy = NodePath("Test CameraHelper")
 [node name="Test Room 2" parent="." unique_id=1595373838 instance=ExtResource("3_4ahq8")]
 position = Vector2(640, 0)
 
-[node name="Test Player" parent="." unique_id=993322269 groups=["player"] instance=ExtResource("4_2datq")]
-position = Vector2(115, 289)
+[node name="DFMSPlayer" parent="." unique_id=1148202122 instance=ExtResource("4_kawvu")]
+position = Vector2(115, 284)
 
 [node name="Test Camera2D" type="Camera2D" parent="." unique_id=1507087289]
 position = Vector2(320, 180)
