@@ -1,14 +1,24 @@
 [gd_scene format=3 uid="uid://c36oxdyricnq2"]
 
 [ext_resource type="Material" uid="uid://dg8x56amonbps" path="res://universes/dystopian_fms_universe/assets/resources/materials/interactable_object.tres" id="1_150l1"]
+[ext_resource type="Script" uid="uid://egxo1cwwtnm8" path="res://universes/dystopian_fms_universe/scripts/objects/base_interactable_object.gd" id="2_5hofs"]
+[ext_resource type="Texture2D" uid="uid://1sb8qu7clesq" path="res://icon.svg" id="3_bwekt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5hofs"]
+size = Vector2(23.625, 20)
 
 [node name="BaseInteractableObject" type="StaticBody2D" unique_id=400370939]
 material = ExtResource("1_150l1")
+script = ExtResource("2_5hofs")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=224746127]
+use_parent_material = true
+texture = ExtResource("3_bwekt")
 
-[node name="InteractableBox" type="Area2D" parent="." unique_id=1506730490]
+[node name="InteractableZone" type="Area2D" parent="." unique_id=1506730490]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableBox" unique_id=826134083]
+[node name="InteractBox" type="CollisionShape2D" parent="InteractableZone" unique_id=826134083]
+shape = SubResource("RectangleShape2D_5hofs")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=32344756]
+[node name="CollisionBox" type="CollisionShape2D" parent="." unique_id=32344756]
+shape = SubResource("RectangleShape2D_5hofs")

@@ -4,3 +4,9 @@
 
 [resource]
 shader = ExtResource("1_sufqu")
+shader_parameter/is_glowing = true
+shader_parameter/is_wavering = false
+shader_parameter/glow_amount = 0.5
+shader_parameter/glow_color = Color(0.15294118, 0.5647059, 0.88235295, 1)
+shader_parameter/wavering_range = 0.2
+shader_parameter/wavering_speed = 1.0
