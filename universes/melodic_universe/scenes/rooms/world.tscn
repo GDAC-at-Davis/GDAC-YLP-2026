@@ -1,14 +1,13 @@
 [gd_scene format=3 uid="uid://usk5b7acwua2"]
 
 [ext_resource type="Script" uid="uid://d11vcmh4gymci" path="res://universes/melodic_universe/scripts/rooms/world.gd" id="1_nhhpd"]
-[ext_resource type="Script" uid="uid://coba1ujub6ogs" path="res://universes/melodic_universe/scripts/objects/metronome.gd" id="2_nhhpd"]
-[ext_resource type="AudioStream" uid="uid://ce46u75hb2100" path="res://universes/melodic_universe/assets/audio/soundreality-kick-drum-acoustic-sample-455285.mp3" id="3_krnbg"]
 [ext_resource type="PackedScene" uid="uid://b3xrs3d8au3yx" path="res://universes/melodic_universe/scenes/objects/melodic_player.tscn" id="4_1xuny"]
 [ext_resource type="PackedScene" uid="uid://bcfr3rrkl8a0h" path="res://universes/melodic_universe/scenes/rooms/test_level1.tscn" id="4_vbiah"]
 [ext_resource type="PackedScene" uid="uid://cbyn4ag2ntbct" path="res://universes/melodic_universe/scenes/rooms/test_level2.tscn" id="5_1xuny"]
 [ext_resource type="Script" uid="uid://cbs7uj8yji2s5" path="res://universes/melodic_universe/scripts/objects/camera_2d.gd" id="5_mk5v1"]
 [ext_resource type="Script" uid="uid://cl7bcm3xrxusy" path="res://universes/melodic_universe/scripts/rooms/camera_area.gd" id="5_q2bbb"]
 [ext_resource type="Script" uid="uid://brbjqdn38j4mb" path="res://universes/melodic_universe/scripts/objects/camera_helper.gd" id="6_y6sdy"]
+[ext_resource type="PackedScene" uid="uid://drqrq6d5a24mk" path="res://universes/melodic_universe/scenes/objects/metronome.tscn" id="8_mk5v1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1xuny"]
 size = Vector2(639.2885, 311)
@@ -20,8 +19,9 @@ size = Vector2(639.2885, 312)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y6sdy"]
 
-[node name="Melodic World" type="Node" unique_id=1562650878 node_paths=PackedStringArray("player", "camera", "buddy", "metronome")]
+[node name="Melodic World" type="Node" unique_id=1562650878 node_paths=PackedStringArray("world", "player", "camera", "buddy", "metronome")]
 script = ExtResource("1_nhhpd")
+world = NodePath(".")
 player = NodePath("Melodic_Player")
 camera = NodePath("Camera2D")
 buddy = NodePath("CameraHelper")
@@ -32,7 +32,7 @@ metronome = NodePath("Metronome")
 [node name="Test Level2" parent="." unique_id=2104715804 instance=ExtResource("5_1xuny")]
 position = Vector2(640, 0)
 
-[node name="Melodic_Player" parent="." unique_id=993322269 groups=["player"] instance=ExtResource("4_1xuny")]
+[node name="Melodic_Player" parent="." unique_id=993322269 instance=ExtResource("4_1xuny")]
 position = Vector2(113, 268)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=416892942]
@@ -73,14 +73,8 @@ shape = SubResource("RectangleShape2D_mk5v1")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera Area2/CollisionShape2D/Camera Point" unique_id=1453546766]
 shape = SubResource("RectangleShape2D_y6sdy")
 
-[node name="Metronome" type="Node2D" parent="." unique_id=218369003]
-script = ExtResource("2_nhhpd")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Metronome" unique_id=1032073066]
-stream = ExtResource("3_krnbg")
-volume_db = -17.16
-
-[node name="Timer" type="Timer" parent="Metronome" unique_id=460453159]
+[node name="Metronome" parent="." unique_id=611555683 instance=ExtResource("8_mk5v1")]
+position = Vector2(-2, -3)
 
 [connection signal="body_entered" from="Camera Area1" to="Camera Area1" method="_on_body_entered"]
 [connection signal="body_exited" from="Camera Area1" to="Camera Area1" method="_on_body_exited"]

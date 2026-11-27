@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://8ity83brl2a6"
+path="res://.godot/imported/melodic_intro.dialogue-6c1a3197d69a83e6743f711065e3fc62.tres"
+
+[deps]
+
+source_file="res://universes/melodic_universe/dialogue/melodic_intro.dialogue"
+dest_files=["res://.godot/imported/melodic_intro.dialogue-6c1a3197d69a83e6743f711065e3fc62.tres"]
+
+[params]
+
+defaults=true

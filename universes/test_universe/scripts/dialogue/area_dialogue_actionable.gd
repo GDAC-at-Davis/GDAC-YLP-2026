@@ -7,6 +7,7 @@ extends DialogueActionable2D
 var player : CharacterBody2D
 
 func _on_body_entered(body: CharacterBody2D) -> void:
+	print("entered")
 	if is_instance_valid(dialogue_resource) and not dialogue_cue.is_empty():
 		if body.is_in_group("player"):
 			player = body

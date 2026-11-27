@@ -3,12 +3,10 @@ extends CharacterBody2D
 var speed = 300.0
 var jump_speed = -400.0
 var movement_stasis : bool = false
-# var in_dialogue : bool = false
-
-var world: Node
+var in_dialogue : bool = false
 
 func _ready() -> void:
-	world = get_parent()
+	pass
 	
 func _physics_process(delta):
 	if not movement_stasis:
@@ -31,7 +29,10 @@ func _physics_process(delta):
 	
 	# Beat sync
 	if Input.is_action_just_pressed("melodic-beat"):
-		world.metronome.print_on_beat()
+		MelodicGameManager.metronome.print_on_beat()
+		
+		if not (MelodicGameManager.darkness == null):
+			MelodicGameManager.darkness.fade_out()
 	
 	# Debug: Detecting button inputs 
 	# custom_1: shift, space

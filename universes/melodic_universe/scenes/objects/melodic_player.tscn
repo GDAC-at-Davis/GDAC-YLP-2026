@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qnbew"]
 size = Vector2(26, 45)
 
-[node name="Melodic_Player" type="CharacterBody2D" unique_id=993322269]
+[node name="Melodic_Player" type="CharacterBody2D" unique_id=993322269 groups=["player"]]
 script = ExtResource("1_1v06l")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1535311039]

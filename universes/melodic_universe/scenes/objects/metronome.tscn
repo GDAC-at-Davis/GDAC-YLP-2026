@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://drqrq6d5a24mk"]
+
+[ext_resource type="Script" uid="uid://coba1ujub6ogs" path="res://universes/melodic_universe/scripts/objects/metronome.gd" id="1_xt6pu"]
+[ext_resource type="AudioStream" uid="uid://ce46u75hb2100" path="res://universes/melodic_universe/assets/audio/soundreality-kick-drum-acoustic-sample-455285.mp3" id="2_e0aka"]
+
+[node name="Metronome" type="Node2D" unique_id=611555683]
+script = ExtResource("1_xt6pu")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2019359860]
+stream = ExtResource("2_e0aka")
+volume_db = -17.16
+
+[node name="Timer" type="Timer" parent="." unique_id=1299338497]

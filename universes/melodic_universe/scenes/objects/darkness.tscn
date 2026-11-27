@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://dvbvdip5w1u20"]
+
+[ext_resource type="Script" uid="uid://brdoc0cwxsees" path="res://universes/melodic_universe/scripts/objects/darkness.gd" id="1_rith8"]
+
+[sub_resource type="Animation" id="Animation_7qjqm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_obiu1"]
+resource_name = "fade_out"
+length = 0.43333334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.36666667),
+"transitions": PackedFloat32Array(1, 3.7321303),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u3xjx"]
+_data = {
+&"RESET": SubResource("Animation_7qjqm"),
+&"fade_out": SubResource("Animation_obiu1")
+}
+
+[node name="Darkness" type="Node2D" unique_id=1014884694 node_paths=PackedStringArray("animation_player")]
+script = ExtResource("1_rith8")
+animation_player = NodePath("Darkness/AnimationPlayer")
+
+[node name="Darkness" type="CanvasLayer" parent="." unique_id=991011753]
+
+[node name="ColorRect" type="ColorRect" parent="Darkness" unique_id=2069651557]
+offset_right = 639.0
+offset_bottom = 360.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Darkness" unique_id=769914192]
+libraries/ = SubResource("AnimationLibrary_u3xjx")

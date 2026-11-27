@@ -1,14 +1,23 @@
 [gd_scene format=3 uid="uid://b2xduotatihdc"]
 
 [ext_resource type="PackedScene" uid="uid://cbyn4ag2ntbct" path="res://universes/melodic_universe/scenes/rooms/test_level2.tscn" id="1_1k7yj"]
+[ext_resource type="Script" uid="uid://dc52bslh6vub2" path="res://universes/melodic_universe/scripts/rooms/intro_cutscene.gd" id="1_f4b5m"]
+[ext_resource type="PackedScene" uid="uid://dvbvdip5w1u20" path="res://universes/melodic_universe/scenes/objects/darkness.tscn" id="1_obiu1"]
 [ext_resource type="PackedScene" uid="uid://b3xrs3d8au3yx" path="res://universes/melodic_universe/scenes/objects/melodic_player.tscn" id="2_veb6k"]
-[ext_resource type="Script" uid="uid://b7cli5hi7wyn" path="res://universes/test_universe/scripts/dialogue/area_dialogue_actionable.gd" id="3_7qjqm"]
-[ext_resource type="Resource" uid="uid://8ity83brl2a6" path="res://universes/melodic_universe/dialogue/melodic_intro_01.dialogue" id="4_obiu1"]
+[ext_resource type="Script" uid="uid://bcvn4x25n3lyo" path="res://universes/melodic_universe/scripts/dialogue/dialogue_actionable_2d.gd" id="3_veb6k"]
+[ext_resource type="Resource" uid="uid://8ity83brl2a6" path="res://universes/melodic_universe/dialogue/melodic_intro.dialogue" id="4_obiu1"]
+[ext_resource type="PackedScene" uid="uid://drqrq6d5a24mk" path="res://universes/melodic_universe/scenes/objects/metronome.tscn" id="6_4nhig"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4nhig"]
 size = Vector2(640, 360)
 
-[node name="IntroCutscene" type="Node2D" unique_id=25573148]
+[node name="IntroCutscene" type="Node2D" unique_id=25573148 node_paths=PackedStringArray("metronome", "darkness")]
+script = ExtResource("1_f4b5m")
+metronome = NodePath("Metronome")
+darkness = NodePath("Darkness")
+
+[node name="Darkness" parent="." unique_id=1014884694 instance=ExtResource("1_obiu1")]
+position = Vector2(180, 127)
 
 [node name="Test Level" parent="." unique_id=1728698247 instance=ExtResource("1_1k7yj")]
 position = Vector2(-1, -1)
@@ -18,14 +27,17 @@ position = Vector2(73, 282)
 
 [node name="DialogueActionable2D2" type="Area2D" parent="." unique_id=684747415]
 position = Vector2(73, 282)
-script = ExtResource("3_7qjqm")
+script = ExtResource("3_veb6k")
 dialogue_resource = ExtResource("4_obiu1")
-dialogue_cue = "melodic_intro_01_start"
+dialogue_cue = "melodic_intro_start"
 metadata/_custom_type_script = "uid://cqcur1rm7433g"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueActionable2D2" unique_id=1612373786]
-position = Vector2(248, -103)
+position = Vector2(246, -100)
 shape = SubResource("RectangleShape2D_4nhig")
+
+[node name="Metronome" parent="." unique_id=611555683 instance=ExtResource("6_4nhig")]
+position = Vector2(1, 0)
 
 [connection signal="actioned" from="DialogueActionable2D2" to="DialogueActionable2D2" method="_on_actioned"]
 [connection signal="body_entered" from="DialogueActionable2D2" to="DialogueActionable2D2" method="_on_body_entered"]
