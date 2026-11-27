@@ -33,7 +33,7 @@ metronome = NodePath("Metronome")
 position = Vector2(640, 0)
 
 [node name="Melodic_Player" parent="." unique_id=993322269 groups=["player"] instance=ExtResource("4_1xuny")]
-position = Vector2(57, 285)
+position = Vector2(113, 268)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=416892942]
 position = Vector2(320, 180)
@@ -50,7 +50,7 @@ zoom = Vector2(1.5, 1.5)
 camera_follow = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera Area1" unique_id=653082082]
-position = Vector2(0.9987793, -3.5)
+position = Vector2(-1.7464161e-05, -5)
 shape = SubResource("RectangleShape2D_1xuny")
 
 [node name="Camera Point" type="Area2D" parent="Camera Area1/CollisionShape2D" unique_id=1007641558 groups=["camera point"]]
