@@ -7,18 +7,20 @@ class_name DFMSGameManager
 ## like changing game state.
 
 
-enum PlayerControlState {
-	NO_CTRL,
-	PLAYER,
-	INTERACTABLE_SELECT,
+enum GameState {
+	ACTIVE,
+	SELECTING,
+	DIALOGUE,
 }
 
+# Game pausing to be worked on
+var _game_paused: bool
 
 var player: CharacterBody2D
 var camera: Camera2D
 var buddy: Node
 
-var _player_control_state: PlayerControlState = PlayerControlState.PLAYER
+var _current_state: GameState
 
 
 func _ready() -> void:
@@ -34,5 +36,9 @@ func request_change_active_camera(new_cam: Camera2D):
 	pass
 
 
-func change_player_control_state(new_state: PlayerControlState):
+func get_game_state():
+	return _current_state
+
+
+func set_game_state(new_state: GameState):
 	pass
