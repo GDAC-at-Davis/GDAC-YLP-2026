@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dg8x56amonbps"]
+
+[ext_resource type="Shader" uid="uid://c6v0brklbwvc2" path="res://universes/dystopian_fms_universe/scripts/shaders/interactable_object.gdshader" id="1_sufqu"]
+
+[resource]
+shader = ExtResource("1_sufqu")
