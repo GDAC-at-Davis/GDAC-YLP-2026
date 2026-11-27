@@ -6,12 +6,29 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qnbew"]
 size = Vector2(26, 45)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_qburg"]
+animations = [{
+"frames": [],
+"loop": 1,
+"name": &"EquipMask",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ihi8k")
+}],
+"loop": 1,
+"name": &"MaskOnWalk",
+"speed": 5.0
+}]
+
 [node name="Test Player" type="CharacterBody2D" unique_id=993322269]
 script = ExtResource("1_65e6g")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1535311039]
-texture_filter = 1
-texture = ExtResource("2_ihi8k")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1556139949]
 shape = SubResource("RectangleShape2D_qnbew")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1446136771]
+sprite_frames = SubResource("SpriteFrames_qburg")
+animation = &"MaskOnWalk"
+frame_progress = 0.78828096
