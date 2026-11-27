@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://b7hqw7vf1f66b"
+path="res://.godot/imported/test_room.dialogue-4b1d68ea383cbc5e242acec0d2f7d2e2.tres"
+
+[deps]
+
+source_file="res://universes/test_universe/dialogue/test_room.dialogue"
+dest_files=["res://.godot/imported/test_room.dialogue-4b1d68ea383cbc5e242acec0d2f7d2e2.tres"]
+
+[params]
+
+defaults=true
