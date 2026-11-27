@@ -1,9 +1,10 @@
 ~ melodic_intro_start
+do MelodicGameManager.metronome.mute_metronome(true)
 Gee: Woah! It’s completely dark here!
 Dakki: Where are we?
 Gee: That’s a good question, I’m not sure…
 Dakki: Let’s try looking around.
-PLACEHOLDER: *Player stumbles around for a bit in the dark, you can hear movement sound effects, but nothing else. This goes on for maybe 15 seconds*
+do wait(3.0)
 Dakki: It’s really hard to navigate in the dark…
 Gee: And it’s really lonely actually… I can’t even remember making this game in the first place.
 Dakki: Well we have to keep going, but there must be some way we can navigate the dark.
@@ -13,5 +14,11 @@ Gee: Yeah I’ll make a sound and based on how much it echos, we can know if the
 Dakki: I mean, it’s better than nothing…
 Gee: *Starts humming a song*
 Dakki: I don’t think a song is going to he-
-PLACEHOLDER:  START
+do MelodicGameManager.darkness.fade_out_continuously(true)
+Dakki: Woah!
+Gee: No way! The song is illuminating everything just enough to see!
+do MelodicGameManager.darkness.fade_out_continuously(false)
+Dakki: Hey wait, keep singing! Everything is going back to darkness when you’re not!
+Gee: Gee, I thought you didn’t believe in my singing!
+do MelodicGameManager.metronome.mute_metronome(false)
 => END

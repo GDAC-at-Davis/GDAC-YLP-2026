@@ -5,6 +5,7 @@ signal loading_screen_ready
 
 @export var animation_player : AnimationPlayer
 
+var continuous : bool = false;
 func _ready() -> void:
 	pass
 	#await animation_player.animation_finished
@@ -12,9 +13,16 @@ func _ready() -> void:
 
 func fade_out() -> void: 
 	animation_player.play("fade_out")
+	
+func fade_out_continuously(set: bool) -> void: 
+	if set == null:
+		set = true
+	continuous = set
 
 func _process(_delta) -> void:
-	pass
+	if (continuous == true):
+		if MelodicGameManager.metronome.check_perfect():
+			animation_player.play("fade_out")
 	#if MelodicGameManager.player:
 		#MelodicGameManager.player.movement_stasis = true
 

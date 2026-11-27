@@ -7,6 +7,8 @@ extends Node
 @onready var audio_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var timer: Timer = $Timer
 
+var mute: bool = false
+
 enum OnBeat {PERFECT, GREAT, GOOD, BAD}
 
 var current_beat: int = 0
@@ -23,6 +25,14 @@ func print_on_beat():
 		OnBeat.BAD:
 			print("BAD!")
 
+func check_perfect() -> bool:
+	if on_beat == OnBeat.PERFECT:
+		return true
+	return false
+
+func mute_metronome(set: bool = true) -> void:
+	mute = set
+	
 func _ready() -> void:
 	current_beat = 0;
 	var interval = 60.0 / bpm
@@ -36,7 +46,8 @@ func _on_beat_timeout() -> void:
 	
 	# for num_sub_beats >= 6
 	if (current_sub_beat == 0):
-		audio_player.play()
+		if not mute:
+			audio_player.play()
 		on_beat = OnBeat.PERFECT
 		# print("  PERFECT!")
 	elif (current_sub_beat == 1):
