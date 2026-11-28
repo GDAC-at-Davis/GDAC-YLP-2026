@@ -45,7 +45,7 @@ var active_camera: Camera2D = null
 func _ready() -> void:
 	request_change_active_camera.connect(_on_request_change_active_camera)
 	request_disengage_camera.connect(_on_request_disengage_active_camera)
-	set_game_state(GameState.ACTIVE)
+	set_game_state(GameState.PAUSED)
 	pass
 	#var room = get_node_or_null("/root/Room")
 	#if not room: return
