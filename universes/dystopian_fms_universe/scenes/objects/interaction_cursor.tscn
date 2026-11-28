@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://p8tp76raq6wl"]
+
+[ext_resource type="Script" uid="uid://dadoblvoy6qa4" path="res://universes/dystopian_fms_universe/scripts/objects/interaction_cursor.gd" id="1_ugy7n"]
+[ext_resource type="Script" uid="uid://b2ygablvbr07h" path="res://universes/dystopian_fms_universe/scripts/objects/interactable_zone.gd" id="2_x05gx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e0c7p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xcsdh"]
+
+[node name="InteractionCursor" type="CharacterBody2D" unique_id=975381420 node_paths=PackedStringArray("interaction_zone")]
+script = ExtResource("1_ugy7n")
+interaction_zone = NodePath("InteractionZone")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1868401947]
+
+[node name="InteractionZone" type="Area2D" parent="." unique_id=829048039]
+script = ExtResource("2_x05gx")
+
+[node name="InteractBox" type="CollisionShape2D" parent="InteractionZone" unique_id=1931339822]
+shape = SubResource("RectangleShape2D_e0c7p")
+
+[node name="BoundaryCheckBox" type="CollisionShape2D" parent="." unique_id=95251352]
+shape = SubResource("RectangleShape2D_xcsdh")

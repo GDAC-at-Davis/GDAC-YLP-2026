@@ -3,6 +3,7 @@
 [ext_resource type="Material" uid="uid://dg8x56amonbps" path="res://universes/dystopian_fms_universe/assets/resources/materials/interactable_object.tres" id="1_150l1"]
 [ext_resource type="Script" uid="uid://egxo1cwwtnm8" path="res://universes/dystopian_fms_universe/scripts/objects/base_interactable_object.gd" id="2_5hofs"]
 [ext_resource type="Texture2D" uid="uid://1sb8qu7clesq" path="res://icon.svg" id="3_bwekt"]
+[ext_resource type="Script" uid="uid://b2ygablvbr07h" path="res://universes/dystopian_fms_universe/scripts/objects/interactable_zone.gd" id="4_bwekt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5hofs"]
 size = Vector2(23.625, 20)
@@ -16,6 +17,7 @@ use_parent_material = true
 texture = ExtResource("3_bwekt")
 
 [node name="InteractableZone" type="Area2D" parent="." unique_id=1506730490]
+script = ExtResource("4_bwekt")
 
 [node name="InteractBox" type="CollisionShape2D" parent="InteractableZone" unique_id=826134083]
 shape = SubResource("RectangleShape2D_5hofs")
