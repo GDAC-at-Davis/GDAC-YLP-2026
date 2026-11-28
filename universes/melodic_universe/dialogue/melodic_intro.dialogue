@@ -21,6 +21,7 @@ Dakki: Woah!
 Gee: No way! The song is illuminating everything just enough to see!
 Dakki: Hey wait, keep singing! Everything is going back to darkness when you’re not!
 Gee: Gee, I thought you didn’t believe in my singing!
+: Press 'E' to sing
 do MelodicGameManager.darkness.set_can_fade_out(true)
 => END
 

@@ -54,7 +54,7 @@ func _on_beat_timeout() -> void:
 		if not mute:
 			audio_player.play()
 		on_beat = OnBeat.PERFECT
-		print(check_new_measure())
+		# print(check_new_measure())
 		# print("  PERFECT!")
 	elif (current_sub_beat == 1):
 		audio_player.stop()

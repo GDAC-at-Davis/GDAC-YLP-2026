@@ -128,4 +128,4 @@ tile_set = SubResource("TileSet_qnbew")
 position = Vector2(475, 259)
 
 [node name="TheGuy" parent="." unique_id=1823845190 instance=ExtResource("3_n6bma")]
-position = Vector2(315, 256)
+position = Vector2(321, 266)

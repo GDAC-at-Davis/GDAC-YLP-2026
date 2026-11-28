@@ -7,7 +7,7 @@
 size = Vector2(235, 71)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fj7rf"]
-size = Vector2(93, 60)
+size = Vector2(92, 59)
 
 [node name="Car And Drum Kit" type="Node2D" unique_id=480128488]
 
@@ -29,5 +29,5 @@ scale = Vector2(0.11767242, 0.10258621)
 texture = ExtResource("2_gawt4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DrumKit" unique_id=2013886738]
-position = Vector2(-10.5, -88)
+position = Vector2(-9, -88.5)
 shape = SubResource("RectangleShape2D_fj7rf")
