@@ -12,7 +12,6 @@ class_name DFMSInteractionCursor
 # ? - Exit Selection Mode
 
 
-
 signal cursor_selected_interactable(DFMSInteractableObject)
 signal cursor_failed_selection
 signal cursor_exit_selection
@@ -45,11 +44,13 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
+## Enables the cursor for movement.
 func activate():
 	visible = true
 	set_physics_process(true)
 
 
+## Disables and hides the cursor, emits a signal to exit selection mode.
 func deactivate():
 	visible = false
 	_hovered_zones_queue.clear()
