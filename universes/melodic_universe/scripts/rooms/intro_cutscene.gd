@@ -1,10 +1,16 @@
-extends Node2D
+extends Node
 
+@export var player: CharacterBody2D
+@export var camera: Camera2D
+@export var buddy: Node2D
 @export var metronome = Node2D
 @export var darkness = Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	MelodicGameManager.player = player
+	MelodicGameManager.camera = camera
+	MelodicGameManager.buddy = buddy
 	MelodicGameManager.metronome = metronome
 	MelodicGameManager.darkness = darkness
 

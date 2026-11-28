@@ -2,42 +2,166 @@
 
 [ext_resource type="PackedScene" uid="uid://cbyn4ag2ntbct" path="res://universes/melodic_universe/scenes/rooms/test_level2.tscn" id="1_1k7yj"]
 [ext_resource type="Script" uid="uid://dc52bslh6vub2" path="res://universes/melodic_universe/scripts/rooms/intro_cutscene.gd" id="1_f4b5m"]
-[ext_resource type="PackedScene" uid="uid://dvbvdip5w1u20" path="res://universes/melodic_universe/scenes/objects/darkness.tscn" id="1_obiu1"]
+[ext_resource type="Script" uid="uid://brdoc0cwxsees" path="res://universes/melodic_universe/scripts/objects/darkness.gd" id="2_0wahv"]
 [ext_resource type="PackedScene" uid="uid://b3xrs3d8au3yx" path="res://universes/melodic_universe/scenes/objects/melodic_player.tscn" id="2_veb6k"]
 [ext_resource type="Script" uid="uid://bcvn4x25n3lyo" path="res://universes/melodic_universe/scripts/dialogue/dialogue_actionable_2d.gd" id="3_veb6k"]
 [ext_resource type="Resource" uid="uid://8ity83brl2a6" path="res://universes/melodic_universe/dialogue/melodic_intro.dialogue" id="4_obiu1"]
+[ext_resource type="PackedScene" uid="uid://ymce4h6tui0n" path="res://universes/melodic_universe/scenes/rooms/intro_drummer.tscn" id="4_pe25s"]
+[ext_resource type="Script" uid="uid://cbs7uj8yji2s5" path="res://universes/melodic_universe/scripts/objects/camera_2d.gd" id="5_0wahv"]
 [ext_resource type="PackedScene" uid="uid://drqrq6d5a24mk" path="res://universes/melodic_universe/scenes/objects/metronome.tscn" id="6_4nhig"]
+[ext_resource type="Script" uid="uid://brbjqdn38j4mb" path="res://universes/melodic_universe/scripts/objects/camera_helper.gd" id="6_pe25s"]
+[ext_resource type="Script" uid="uid://cl7bcm3xrxusy" path="res://universes/melodic_universe/scripts/rooms/camera_area.gd" id="7_etxwe"]
+
+[sub_resource type="Animation" id="Animation_7qjqm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_obiu1"]
+resource_name = "fade_out"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.9),
+"transitions": PackedFloat32Array(1, 10.196478),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pe25s"]
+_data = {
+&"RESET": SubResource("Animation_7qjqm"),
+&"fade_out": SubResource("Animation_obiu1")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rfx53"]
+size = Vector2(3197.4414, 311)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sb32t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4nhig"]
-size = Vector2(640, 360)
+size = Vector2(131, 359)
 
-[node name="IntroCutscene" type="Node2D" unique_id=25573148 node_paths=PackedStringArray("metronome", "darkness")]
+[node name="IntroCutscene" type="Node" unique_id=576865968 node_paths=PackedStringArray("player", "camera", "buddy", "metronome", "darkness")]
 script = ExtResource("1_f4b5m")
+player = NodePath("Melodic_Player")
+camera = NodePath("Camera2D2")
+buddy = NodePath("CameraHelper2")
 metronome = NodePath("Metronome")
 darkness = NodePath("Darkness")
 
-[node name="Darkness" parent="." unique_id=1014884694 instance=ExtResource("1_obiu1")]
-position = Vector2(180, 127)
+[node name="Darkness" type="Node2D" parent="." unique_id=889674000 node_paths=PackedStringArray("animation_player")]
+script = ExtResource("2_0wahv")
+animation_player = NodePath("Darkness2/AnimationPlayer")
+
+[node name="Darkness2" type="CanvasLayer" parent="Darkness" unique_id=1488487883]
+
+[node name="ColorRect" type="ColorRect" parent="Darkness/Darkness2" unique_id=349688399]
+offset_right = 3205.0
+offset_bottom = 360.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Darkness/Darkness2" unique_id=1675958333]
+libraries/ = SubResource("AnimationLibrary_pe25s")
 
 [node name="Test Level" parent="." unique_id=1728698247 instance=ExtResource("1_1k7yj")]
-position = Vector2(-1, -1)
+
+[node name="Test Level2" parent="." unique_id=876005656 instance=ExtResource("1_1k7yj")]
+position = Vector2(640, 0)
+
+[node name="Test Level3" parent="." unique_id=745667629 instance=ExtResource("1_1k7yj")]
+position = Vector2(1280, 0)
+
+[node name="Test Level4" parent="." unique_id=184909733 instance=ExtResource("1_1k7yj")]
+position = Vector2(1920, 0)
+
+[node name="Intro Drummer Scene" parent="." unique_id=635236083 instance=ExtResource("4_pe25s")]
+position = Vector2(2560, 0)
 
 [node name="Melodic_Player" parent="." unique_id=993322269 instance=ExtResource("2_veb6k")]
 position = Vector2(73, 282)
 
-[node name="DialogueActionable2D2" type="Area2D" parent="." unique_id=684747415]
+[node name="Camera2D2" type="Camera2D" parent="." unique_id=1867597829]
+position = Vector2(320, 180)
+script = ExtResource("5_0wahv")
+
+[node name="CameraHelper2" type="Node2D" parent="." unique_id=93434159]
+script = ExtResource("6_pe25s")
+
+[node name="Camera Area3" type="Area2D" parent="." unique_id=323816656]
+position = Vector2(319.00003, 160)
+scale = Vector2(1.0011129, 1)
+script = ExtResource("7_etxwe")
+zoom = Vector2(1, 1)
+camera_follow = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera Area3" unique_id=841352332]
+position = Vector2(1279.0765, -5)
+shape = SubResource("RectangleShape2D_rfx53")
+
+[node name="Camera Point" type="Area2D" parent="Camera Area3/CollisionShape2D" unique_id=268742071 groups=["camera point"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera Area3/CollisionShape2D/Camera Point" unique_id=1809482821]
+shape = SubResource("RectangleShape2D_sb32t")
+
+[node name="StartIntroDialogue" type="Area2D" parent="." unique_id=684747415]
 position = Vector2(73, 282)
 script = ExtResource("3_veb6k")
 dialogue_resource = ExtResource("4_obiu1")
 dialogue_cue = "melodic_intro_start"
 metadata/_custom_type_script = "uid://cqcur1rm7433g"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueActionable2D2" unique_id=1612373786]
-position = Vector2(246, -100)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StartIntroDialogue" unique_id=1612373786]
+position = Vector2(2, -103)
+shape = SubResource("RectangleShape2D_4nhig")
+
+[node name="IntroDialoguePart2" type="Area2D" parent="." unique_id=1350117930]
+position = Vector2(73, 282)
+script = ExtResource("3_veb6k")
+repeatable = true
+dialogue_resource = ExtResource("4_obiu1")
+dialogue_cue = "melodic_intro_part2"
+metadata/_custom_type_script = "uid://cqcur1rm7433g"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IntroDialoguePart2" unique_id=198057244]
+position = Vector2(1293, -102)
+shape = SubResource("RectangleShape2D_4nhig")
+
+[node name="IntroDialogueDrummer" type="Area2D" parent="." unique_id=110790990]
+position = Vector2(73, 282)
+script = ExtResource("3_veb6k")
+repeatable = true
+dialogue_resource = ExtResource("4_obiu1")
+dialogue_cue = "melodic_intro_meet_guy"
+metadata/_custom_type_script = "uid://cqcur1rm7433g"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IntroDialogueDrummer" unique_id=1040232428]
+position = Vector2(2629, -101.5)
 shape = SubResource("RectangleShape2D_4nhig")
 
 [node name="Metronome" parent="." unique_id=611555683 instance=ExtResource("6_4nhig")]
 position = Vector2(1, 0)
 
-[connection signal="actioned" from="DialogueActionable2D2" to="DialogueActionable2D2" method="_on_actioned"]
-[connection signal="body_entered" from="DialogueActionable2D2" to="DialogueActionable2D2" method="_on_body_entered"]
+[connection signal="body_entered" from="Camera Area3" to="Camera Area3" method="_on_body_entered"]
+[connection signal="body_exited" from="Camera Area3" to="Camera Area3" method="_on_body_exited"]
+[connection signal="actioned" from="StartIntroDialogue" to="StartIntroDialogue" method="_on_actioned"]
+[connection signal="body_entered" from="StartIntroDialogue" to="StartIntroDialogue" method="_on_body_entered"]
+[connection signal="actioned" from="IntroDialoguePart2" to="IntroDialoguePart2" method="_on_actioned"]
+[connection signal="body_entered" from="IntroDialoguePart2" to="IntroDialoguePart2" method="_on_body_entered"]
+[connection signal="actioned" from="IntroDialogueDrummer" to="IntroDialogueDrummer" method="_on_actioned"]
+[connection signal="body_entered" from="IntroDialogueDrummer" to="IntroDialogueDrummer" method="_on_body_entered"]

@@ -19,9 +19,8 @@ size = Vector2(639.2885, 312)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y6sdy"]
 
-[node name="Melodic World" type="Node" unique_id=1562650878 node_paths=PackedStringArray("world", "player", "camera", "buddy", "metronome")]
+[node name="Melodic World" type="Node" unique_id=1562650878 node_paths=PackedStringArray("player", "camera", "buddy", "metronome")]
 script = ExtResource("1_nhhpd")
-world = NodePath(".")
 player = NodePath("Melodic_Player")
 camera = NodePath("Camera2D")
 buddy = NodePath("CameraHelper")

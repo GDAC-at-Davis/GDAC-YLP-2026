@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://b0arp4ky138ir"]
+
+[ext_resource type="Texture2D" uid="uid://vaqnviatvfae" path="res://universes/melodic_universe/assets/sprites/car_placeholder.jpg" id="1_d550i"]
+[ext_resource type="Texture2D" uid="uid://do5q8haq8lx3w" path="res://universes/melodic_universe/assets/sprites/drum_kit_placeholder.jpg" id="2_gawt4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5yo8w"]
+size = Vector2(235, 71)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fj7rf"]
+size = Vector2(93, 60)
+
+[node name="Car And Drum Kit" type="Node2D" unique_id=480128488]
+
+[node name="Car" type="StaticBody2D" parent="." unique_id=344139474]
+
+[node name="Sprite2D" type="Sprite2D" parent="Car" unique_id=135054390]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_d550i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Car" unique_id=504712839]
+position = Vector2(-0.5, -4.5)
+shape = SubResource("RectangleShape2D_5yo8w")
+
+[node name="DrumKit" type="StaticBody2D" parent="." unique_id=318038533]
+
+[node name="Sprite2D" type="Sprite2D" parent="DrumKit" unique_id=1422079783]
+position = Vector2(-12, -89)
+scale = Vector2(0.11767242, 0.10258621)
+texture = ExtResource("2_gawt4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DrumKit" unique_id=2013886738]
+position = Vector2(-10.5, -88)
+shape = SubResource("RectangleShape2D_fj7rf")

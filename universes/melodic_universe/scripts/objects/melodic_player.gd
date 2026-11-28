@@ -30,7 +30,7 @@ func _physics_process(delta):
 	# Beat sync
 	if Input.is_action_just_pressed("melodic-beat"):
 		MelodicGameManager.metronome.print_on_beat()
-		
+
 		if not (MelodicGameManager.darkness == null):
 			MelodicGameManager.darkness.fade_out()
 	

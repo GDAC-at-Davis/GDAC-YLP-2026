@@ -10,15 +10,70 @@ Gee: And it’s really lonely actually… I can’t even remember making this ga
 Dakki: Well we have to keep going, but there must be some way we can navigate the dark.
 Gee: Okay this may sound crazy, but what if we use echolocation?
 Dakki: Echolocation? You mean the thing bats use to navigate the dark?
-Gee: Yeah I’ll make a sound and based on how much it echos, we can know if there’s walls
+Gee: Yeah, I’ll make a sound and based on how much it echoes, we can know if there are walls!
 Dakki: I mean, it’s better than nothing…
 Gee: *Starts humming a song*
 Dakki: I don’t think a song is going to he-
-do MelodicGameManager.darkness.fade_out_continuously(true)
+do MelodicGameManager.darkness.fade_out()
 Dakki: Woah!
 Gee: No way! The song is illuminating everything just enough to see!
-do MelodicGameManager.darkness.fade_out_continuously(false)
 Dakki: Hey wait, keep singing! Everything is going back to darkness when you’re not!
 Gee: Gee, I thought you didn’t believe in my singing!
+=> END
+
+~ melodic_intro_part2
+Dakki: So what’s up with these outfits anyways?
+Gee: I’m not sure, but I do look pretty in mine!
+Dakki: Okay, no time for idle chatter, keep singing!
+Gee: I’m starting to get tired singing every second, it’s your turn now!
+Dakki: Well… What if I don’t want to? It’s more your thing anyways.
+Gee: Come on! Let me have a break!
+Dakki: I’m just assuming you’re the one who got us in this mess, so you have to resolve it.
+Gee: There must be an easier way than constantly singing to illuminate everything…
+???: Oh no what am I to do?
+Gee: Was that another person’s voice?
+Dakki: Yeah, come on, let’s hurry!
+=> END
+
+~ melodic_intro_meet_guy
+???: What will I do? I can’t see anything, I lost all my bandmates, and I’m just lost…
+Dakki: Looks like there’s our voice.
+Gee: Do you need any help mister?
+???: OMG, can you help me???
+Dakki: This guy is intense…
+???: Oh you can sing! That would help a lot!
+Dakki: That’s besides the point, please continue.
+???: Ahem… sorry. Anyways these darkness monsters started accumulating into the world and it scared off all my bandmates.
+Gee: Ooh! A band sounds like fun!
+???: And ever since they left, the world has gone full dark.
+Gee: Of course!
+???: Thank you!
+Dakki: What do you need help with anyways?
+???: Well this world, if you haven’t noticed, is filled with darkness.
+Dakki: Yeah we learned that the hard way…
+Gee: But my singing has helped us see!
+Dakki: It seems, however, based on our little experimenting that these monsters…
+Gee: Are weak to music!
+???: Ah. . . It’s Hopeless!
+Gee: Woah!
+Dakki: Calm down sir, what do you mean?
+???: All the instruments in the world are with those musicians and they are all gone! All gone!
+Gee: Well we just need to find them then!
+Dakki: Gee, you think eventually if we full illuminate the world, we can go to the next one?
+Gee: It seems like it! Mister let us help!
+???: Oh thank you! Thank you! You said you can sing right? Can you both sing and maybe it will have twice the effect?
+Dakki: Ain’t no way I’m singing!
+Gee: Come on Dakki!
+???: Well I do have this drum kit that I used when we were all together!
+Dakki: I’ll play! Please don’t make me sing.
+???: Let me show you how to play!
+Dakki: Actually I used to play before so there’s no need. Although I’m a little rusty so it’ll take a bit before I can fully get back to playing.
+Gee: But that means I don’t have to sing every second now!
+Dakki: I don’t think the drums will be strong enough to take out these so called darkness monsters though, so you will need to sing to take them out!
+???: I’ll drive the drums around, so don’t worry about us idol girl.
+Gee: Idol girl, I kinda like that.
+Dakki: Okay let me get setup.
+do MelodicGameManager.darkness.fade_out_continuously(true)
 do MelodicGameManager.metronome.mute_metronome(false)
+Gee: Woah! Alright let’s find the music!
 => END

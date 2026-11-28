@@ -2,13 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://bicniubrvei77" path="res://universes/test_universe/assets/tile art/concreteAutoTile1.png" id="1_f3as4"]
 
-[sub_resource type="Gradient" id="Gradient_mg1bf"]
+[sub_resource type="Gradient" id="Gradient_j6w5i"]
 colors = PackedColorArray(0.4045111, 0.40451115, 0.4045111, 1, 0.5931336, 0.59313357, 0.59313357, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_qnbew"]
-gradient = SubResource("Gradient_mg1bf")
+gradient = SubResource("Gradient_j6w5i")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_okndk"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a8mp7"]
 texture = ExtResource("1_f3as4")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -107,7 +107,7 @@ texture = ExtResource("1_f3as4")
 
 [sub_resource type="TileSet" id="TileSet_qnbew"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_okndk")
+sources/0 = SubResource("TileSetAtlasSource_a8mp7")
 
 [node name="Test Level" type="Node2D" unique_id=1728698247]
 

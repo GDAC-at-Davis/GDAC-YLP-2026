@@ -15,7 +15,6 @@ func _on_body_entered(body: CharacterBody2D) -> void:
 			player = body
 			player.in_dialogue = true
 			player.movement_stasis = true
-			print("OK")
 			action()
 
 func _on_actioned() -> void:

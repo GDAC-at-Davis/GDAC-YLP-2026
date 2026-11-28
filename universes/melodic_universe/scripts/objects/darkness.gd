@@ -5,18 +5,18 @@ signal loading_screen_ready
 
 @export var animation_player : AnimationPlayer
 
+var animation_in_progress : bool = false;
 var continuous : bool = false;
+
 func _ready() -> void:
 	pass
 	#await animation_player.animation_finished
 	#loading_screen_ready.emit()
 
-func fade_out() -> void: 
+func fade_out() -> void:
 	animation_player.play("fade_out")
 	
-func fade_out_continuously(set: bool) -> void: 
-	if set == null:
-		set = true
+func fade_out_continuously(set: bool = true) -> void: 
 	continuous = set
 
 func _process(_delta) -> void:
