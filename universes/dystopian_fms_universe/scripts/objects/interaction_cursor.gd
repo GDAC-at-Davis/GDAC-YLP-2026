@@ -35,6 +35,7 @@ func _ready():
 	set_physics_process(false)
 	interaction_zone.area_entered.connect(_on_area_entered)
 	interaction_zone.area_exited.connect(_on_area_exited)
+	dfmsGameManager.enter_selection_mode.connect(_on_cursor_enter_selection)
 
 
 func _physics_process(delta: float) -> void:
@@ -56,7 +57,7 @@ func deactivate():
 	_hovered_zones_queue.clear()
 	_currently_hovered_zone = null
 	set_physics_process(false)
-	cursor_exit_selection.emit()
+	dfmsGameManager.request_game_state_exit.emit(dfmsGameManager.GameState.SELECTION)
 
 
 func _on_area_entered(area: Area2D):

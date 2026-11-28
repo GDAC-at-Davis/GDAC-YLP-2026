@@ -1,5 +1,4 @@
 extends Node
-class_name DFMSGameManager
 
 ## Dystopian Face Mask Society Game Manager
 ##
@@ -15,8 +14,13 @@ enum GameState {
 }
 
 
+# Incoming Signals: Manager handles these.
 signal request_change_active_camera(cam: Camera2D)
 signal request_disengage_camera(cam: Camera2D)
+signal request_game_state_change(new_state: GameState) # Currently unhandled
+signal request_game_state_exit(state: GameState) # Currently unhandled
+
+# Outgoing Signals: Manager emits these, other objects will handle.
 signal enter_selection_mode(player_position: Vector2)
 signal exit_selection_mode
 signal enter_player_active_mode
@@ -116,3 +120,7 @@ func _on_request_disengage_active_camera(cam: Camera2D):
 		_update_camera_queue()
 	else:
 		push_warning("DFMSGameManager tried to disengage camera not in queue.")
+
+
+func _on_request_game_state_change(new_state: GameState):
+	set_game_state(new_state)
