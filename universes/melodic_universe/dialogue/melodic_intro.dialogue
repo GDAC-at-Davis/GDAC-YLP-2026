@@ -14,11 +14,14 @@ Gee: Yeah, I’ll make a sound and based on how much it echoes, we can know if t
 Dakki: I mean, it’s better than nothing…
 Gee: *Starts humming a song*
 Dakki: I don’t think a song is going to he-
+do MelodicGameManager.darkness.set_can_fade_out(true)
 do MelodicGameManager.darkness.fade_out()
+do MelodicGameManager.darkness.set_can_fade_out(false)
 Dakki: Woah!
 Gee: No way! The song is illuminating everything just enough to see!
 Dakki: Hey wait, keep singing! Everything is going back to darkness when you’re not!
 Gee: Gee, I thought you didn’t believe in my singing!
+do MelodicGameManager.darkness.set_can_fade_out(true)
 => END
 
 ~ melodic_intro_part2
@@ -75,5 +78,6 @@ Gee: Idol girl, I kinda like that.
 Dakki: Okay let me get setup.
 do MelodicGameManager.darkness.fade_out_continuously(true)
 do MelodicGameManager.metronome.mute_metronome(false)
+do MelodicGameManager.darkness.set_can_fade_out(false)
 Gee: Woah! Alright let’s find the music!
 => END

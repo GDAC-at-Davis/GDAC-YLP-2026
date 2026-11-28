@@ -30,6 +30,11 @@ func check_perfect() -> bool:
 		return true
 	return false
 
+func check_new_measure() -> bool:
+	if (current_beat / num_sub_beats) % beats_per_measure == 0:
+		return true
+	return false
+
 func mute_metronome(set: bool = true) -> void:
 	mute = set
 	
@@ -49,6 +54,7 @@ func _on_beat_timeout() -> void:
 		if not mute:
 			audio_player.play()
 		on_beat = OnBeat.PERFECT
+		print(check_new_measure())
 		# print("  PERFECT!")
 	elif (current_sub_beat == 1):
 		audio_player.stop()
@@ -63,5 +69,6 @@ func _on_beat_timeout() -> void:
 	
 	# DEBUGGING:
 	# print_on_beat()
-	# print("  Current Beat: ", current_beat ) # Useful for debugging rhythm sync
+	# print("  Current Beat: ", current_beat) # Useful for debugging rhythm sync
 	# print("  Current Sub-beat: ", current_sub_beat)
+	# print("  Current Beat / Sub-beats: ", current_beat / num_sub_beats)

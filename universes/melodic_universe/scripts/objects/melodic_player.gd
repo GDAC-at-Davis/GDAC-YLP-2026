@@ -24,8 +24,10 @@ func _physics_process(delta):
 		if direction != 0:
 			var facing_right = direction > 0
 			$Sprite2D.flip_h = !facing_right
+	else:
+		velocity.x = 0
 		
-		move_and_slide()
+	move_and_slide()
 	
 	# Beat sync
 	if Input.is_action_just_pressed("melodic-beat"):
