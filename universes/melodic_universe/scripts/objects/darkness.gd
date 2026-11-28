@@ -14,6 +14,7 @@ func _ready() -> void:
 	#loading_screen_ready.emit()
 
 func fade_out() -> void:
+	animation_player.stop()
 	animation_player.play("fade_out")
 	
 func fade_out_continuously(set: bool = true) -> void: 
