@@ -1,17 +1,83 @@
 [gd_scene format=3 uid="uid://d3pid33dp3ii"]
 
 [ext_resource type="Script" uid="uid://6eh8qgp0sti0" path="res://universes/starter_world/scripts/objects/player.gd" id="1_pbfdx"]
-[ext_resource type="Texture2D" uid="uid://d38vdghbxinat" path="res://universes/starter_world/assets/sprites/test_player.png" id="2_3np3e"]
+[ext_resource type="Script" uid="uid://btkrc15y46u6i" path="res://universes/starter_world/scripts/objects/state_machine.gd" id="3_qrxs2"]
+[ext_resource type="Script" uid="uid://bolspmglb7db8" path="res://universes/starter_world/scenes/objects/ground_state.gd" id="4_qrxs2"]
+[ext_resource type="Script" uid="uid://063075rchxi7" path="res://universes/starter_world/scenes/objects/ground_idle_state.gd" id="5_ccke6"]
+[ext_resource type="Script" uid="uid://byiqdbf77sgie" path="res://universes/starter_world/scenes/objects/ground_move_state.gd" id="6_n17vx"]
+[ext_resource type="Script" uid="uid://ljx70f3l5peg" path="res://universes/starter_world/scenes/objects/flying_idle_state.gd" id="7_f5ln3"]
+[ext_resource type="Script" uid="uid://bhkex5bk7kjrf" path="res://universes/starter_world/scenes/objects/ground_jump_state.gd" id="7_k5quj"]
+[ext_resource type="Script" uid="uid://boyby57ir6rh7" path="res://universes/starter_world/scenes/objects/ground_fall_state.gd" id="7_o6acq"]
+[ext_resource type="Script" uid="uid://dg5j47bwfuyf8" path="res://universes/starter_world/scenes/objects/flying_move_state.gd" id="8_k5quj"]
+[ext_resource type="Script" uid="uid://bkfwe31w6edin" path="res://universes/starter_world/scenes/objects/flying_state.gd" id="8_o6acq"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_k5quj"]
+load_path = "res://.godot/imported/dakki_stand.png-33eb666f1cb9b93146755c5440c97cdb.ctex"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qnbew"]
-size = Vector2(26, 45)
+size = Vector2(17, 57.5)
 
-[node name="Test Player" type="CharacterBody2D" unique_id=993322269]
+[node name="Player" type="CharacterBody2D" unique_id=993322269]
 script = ExtResource("1_pbfdx")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1535311039]
+z_index = 2
 texture_filter = 1
-texture = ExtResource("2_3np3e")
+scale = Vector2(0.10833331, 0.10833331)
+texture = SubResource("CompressedTexture2D_k5quj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1556139949]
+position = Vector2(1, 5)
 shape = SubResource("RectangleShape2D_qnbew")
+
+[node name="StateMachine" type="Node" parent="." unique_id=1913769410 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_qrxs2")
+initial_state = NodePath("GroundState")
+
+[node name="GroundState" type="Node" parent="StateMachine" unique_id=843469023 node_paths=PackedStringArray("flying_state", "player", "initial_state", "fall_state")]
+script = ExtResource("4_qrxs2")
+flying_state = NodePath("../FlyingState")
+player = NodePath("../..")
+initial_state = NodePath("Idle")
+fall_state = NodePath("Fall")
+
+[node name="Idle" type="Node" parent="StateMachine/GroundState" unique_id=1353093296 node_paths=PackedStringArray("move_state", "jump_state", "player")]
+script = ExtResource("5_ccke6")
+move_state = NodePath("../Move")
+jump_state = NodePath("../Jump")
+player = NodePath("../../..")
+
+[node name="Move" type="Node" parent="StateMachine/GroundState" unique_id=263866799 node_paths=PackedStringArray("idle_state", "jump_state", "player")]
+script = ExtResource("6_n17vx")
+idle_state = NodePath("../Idle")
+jump_state = NodePath("../Jump")
+player = NodePath("../../..")
+
+[node name="Jump" type="Node" parent="StateMachine/GroundState" unique_id=145886599 node_paths=PackedStringArray("idle_state", "move_state", "player")]
+script = ExtResource("7_k5quj")
+idle_state = NodePath("../Idle")
+move_state = NodePath("../Move")
+player = NodePath("../../..")
+
+[node name="Fall" type="Node" parent="StateMachine/GroundState" unique_id=1745106023 node_paths=PackedStringArray("idle_state", "move_state", "jump_state", "player")]
+script = ExtResource("7_o6acq")
+idle_state = NodePath("../Idle")
+move_state = NodePath("../Move")
+jump_state = NodePath("../Jump")
+player = NodePath("../../..")
+
+[node name="FlyingState" type="Node" parent="StateMachine" unique_id=2071777235 node_paths=PackedStringArray("ground_state", "player", "initial_state")]
+script = ExtResource("8_o6acq")
+ground_state = NodePath("../GroundState")
+player = NodePath("../..")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine/FlyingState" unique_id=216692763 node_paths=PackedStringArray("move_state", "player")]
+script = ExtResource("7_f5ln3")
+move_state = NodePath("../Move")
+player = NodePath("../../..")
+
+[node name="Move" type="Node" parent="StateMachine/FlyingState" unique_id=1962884135 node_paths=PackedStringArray("idle_state", "player")]
+script = ExtResource("8_k5quj")
+idle_state = NodePath("../Idle")
+player = NodePath("../../..")

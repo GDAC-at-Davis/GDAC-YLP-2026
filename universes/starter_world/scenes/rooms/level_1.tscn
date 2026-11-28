@@ -28,7 +28,7 @@ buddy = NodePath("Test CameraHelper")
 position = Vector2(640, 0)
 
 [node name="Test Player" parent="." unique_id=993322269 groups=["player"] instance=ExtResource("4_b4pvd")]
-position = Vector2(115, 289)
+position = Vector2(115, 278)
 
 [node name="Test Camera2D" type="Camera2D" parent="." unique_id=1507087289]
 position = Vector2(320, 180)
