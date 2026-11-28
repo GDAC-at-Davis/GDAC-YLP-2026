@@ -9,10 +9,10 @@ func _ready() -> void:
 	pass
 	
 func _physics_process(delta):
+	# Add the gravity.
+	velocity += get_gravity() * delta
+	
 	if not movement_stasis:
-		# Add the gravity.
-		velocity += get_gravity() * delta
-
 		# Handle Jump.
 		if Input.is_action_just_pressed("up") and is_on_floor():
 			velocity.y = jump_speed
