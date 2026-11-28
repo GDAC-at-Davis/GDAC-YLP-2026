@@ -4,12 +4,13 @@ class_name DFMSPlayer
 ## Dystopian Face Mask Society Player
 ##
 ## Main controllable object for the Dystopian Face Mask Society universe.
-## Reserves the following input map scheme:
-##   Left, Right =  Horizontal Movement
-##   Down = Crouch
-##   a = Jump
-##   b = Run
-##   custom_1 = Equip Mask
+
+# Reserves the following input map scheme:
+#   Left, Right =  Horizontal Movement
+#   Down = Crouch
+#   a = Jump
+#   b = Run
+#   custom_1 = Equip Mask
 
 
 #PLAYER SPEEDS

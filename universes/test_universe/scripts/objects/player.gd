@@ -5,7 +5,6 @@ var jump_speed = -400.0
 var crouch_speed = 150.0
 #PLAYER STATES
 var crouching = false
-var Mask = false
 var sprinting = false
 
 var movement_stasis : bool = false

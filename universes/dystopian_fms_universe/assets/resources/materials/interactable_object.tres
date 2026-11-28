@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dg8x56amonbps"]
+
+[ext_resource type="Shader" uid="uid://c6v0brklbwvc2" path="res://universes/dystopian_fms_universe/scripts/shaders/interactable_object.gdshader" id="1_sufqu"]
+
+[resource]
+shader = ExtResource("1_sufqu")
+shader_parameter/is_glowing = true
+shader_parameter/is_wavering = false
+shader_parameter/glow_amount = 0.5
+shader_parameter/glow_color = Color(0.15294118, 0.5647059, 0.88235295, 1)
+shader_parameter/wavering_range = 0.2
+shader_parameter/wavering_speed = 1.0
